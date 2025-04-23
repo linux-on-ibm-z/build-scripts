@@ -3,6 +3,7 @@
     "package_name": "antlr4",
     "github_url": "https://github.com/antlr/antlr4",
     "version": "4.13.2",
+    "wheel_build" : true,
     "default_branch": "master",
     "package_dir": "a/antlr4/",
     "docker_cmd": "docker build -t ${package_name}:$PACKAGE_VERSION ${dir}",
