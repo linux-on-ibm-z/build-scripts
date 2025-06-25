@@ -91,7 +91,10 @@ jobs:
       script:
         - echo "wheel build python 3.10"
         - source variable.sh
-        - chmod +x ./script/build_wheels.sh; bash ./script/build_wheels.sh;
+        - while true; do echo "---- Build in Progress ----"; sleep 180; done & Add commentMore actions
+        - printer_pid=$!
+        - travis_wait 30 chmod +x ./script/build_wheels.sh; bash ./script/build_wheels.sh;
+        - kill $printer_pid
         - sudo chmod a+r *.whl
         - WHEEL_FILE=*.whl
         - chmod +x ./script/upload-scripts/upload_wheel.sh; bash ./script/upload-scripts/upload_wheel.sh $WHEEL_FILE
@@ -141,7 +144,10 @@ jobs:
       script:
         - echo "wheel build python 3.13"
         - source variable.sh
-        - chmod +x ./script/build_wheels.sh; bash ./script/build_wheels.sh;
+        - while true; do echo "---- Build in Progress ----"; sleep 180; done & Add commentMore actions
+        - printer_pid=$!
+        - travis_wait 30 chmod +x ./script/build_wheels.sh; bash ./script/build_wheels.sh;
+        - kill $printer_pid
         - sudo chmod a+r *.whl
         - WHEEL_FILE=*.whl
         - chmod +x ./script/upload-scripts/upload_wheel.sh; bash ./script/upload-scripts/upload_wheel.sh $WHEEL_FILE
