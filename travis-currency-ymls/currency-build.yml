@@ -91,7 +91,7 @@ jobs:
       script:
         - echo "wheel build python 3.10"
         - source variable.sh
-        - while true; do echo "---- Build in Progress ----"; sleep 180; done & Add commentMore actions
+        - while true; do echo "---- Build in Progress ----"; sleep 180; done &
         - printer_pid=$!
         - travis_wait 30 chmod +x ./script/build_wheels.sh; bash ./script/build_wheels.sh;
         - kill $printer_pid
@@ -144,7 +144,7 @@ jobs:
       script:
         - echo "wheel build python 3.13"
         - source variable.sh
-        - while true; do echo "---- Build in Progress ----"; sleep 180; done & Add commentMore actions
+        - while true; do echo "---- Build in Progress ----"; sleep 180; done &
         - printer_pid=$!
         - travis_wait 30 chmod +x ./script/build_wheels.sh; bash ./script/build_wheels.sh;
         - kill $printer_pid
