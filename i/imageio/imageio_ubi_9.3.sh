@@ -24,16 +24,16 @@ PACKAGE_VERSION=${1:- v2.34.1}
 PACKAGE_URL=https://github.com/imageio/imageio.git
 
 yum install -y wget
-dnf config-manager --add-repo https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/
-dnf config-manager --add-repo https://mirror.stream.centos.org/9-stream/BaseOS/ppc64le/os/
-dnf config-manager --add-repo https://mirror.stream.centos.org/9-stream/CRB/ppc64le/os/
+dnf config-manager --add-repo https://mirror.stream.centos.org/9-stream/AppStream/s390x/os/
+dnf config-manager --add-repo https://mirror.stream.centos.org/9-stream/BaseOS/s390x/os/
+dnf config-manager --add-repo https://mirror.stream.centos.org/9-stream/CRB/s390x/os/
 wget http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-Official
 mv RPM-GPG-KEY-CentOS-Official /etc/pki/rpm-gpg/.
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Official
 dnf install --nodocs -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 
 # Install dependencies and tools.
-yum install -y gcc gcc-c++ gcc-gfortran git make python-devel zlib-devel libjpeg-devel libtiff-devel freetype-devel  ffmpeg-free-devel.ppc64le freeimage.ppc64le libwebp-devel  pkg-config ffmpeg-free.ppc64le
+yum install -y gcc gcc-c++ gcc-gfortran git make python-devel zlib-devel libjpeg-devel libtiff-devel freetype-devel  ffmpeg-free-devel freeimage libwebp-devel  pkg-config ffmpeg-free
 
 
 #clone repository 
