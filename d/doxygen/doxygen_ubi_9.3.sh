@@ -22,7 +22,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=doxygen
-PACKAGE_VERSION=1.14.0
+PACKAGE_VERSION=${1:-1.14.0}  
 GITHUB_PACKAGE_VERSION=1_14_0
 PACKAGE_URL=https://github.com/doxygen/doxygen
 
