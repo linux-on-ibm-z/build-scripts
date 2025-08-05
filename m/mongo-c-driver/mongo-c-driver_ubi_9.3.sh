@@ -25,7 +25,7 @@ PACKAGE_URL=https://github.com/mongodb/mongo-c-driver.git
 # Install dependencies.
 yum install -y yum-utils python3-devel gcc gcc-c++ git pkgconfig kmod perl make cmake gcc-c++ wget tar diffutils openssl-devel
 
-yum install -y texlive kernel-devel
+# yum install -y texlive kernel-devel - commenting due to error in travis build
 
 # Create softlink for python
 ln -sf /usr/bin/python3 /usr/bin/python
