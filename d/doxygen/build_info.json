@@ -1,0 +1,16 @@
+{
+    "maintainer": "Nikhil Shinde",
+    "package_name": "doxygen",
+    "github_url": "https://github.com/doxygen/doxygen",
+    "version": "1.14.0",
+    "default_branch": "master",
+    "package_dir": "d/doxygen",
+    "build_script": "doxygen_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "1.14.0_ubi9.3",
+         "build_script": "doxygen_ubi_9_3.sh"
+     }
+}
