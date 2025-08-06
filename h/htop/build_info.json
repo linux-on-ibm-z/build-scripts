@@ -1,0 +1,16 @@
+{
+    "maintainer": "Yugesh Nagvekar",
+    "package_name": "htop",
+    "github_url": "https://github.com/htop-dev/htop",
+    "version": "3.4.1",
+    "default_branch": "master",
+    "package_dir": "h/htop",
+    "build_script": "htop_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "3.4.1_ubi9.3",
+         "build_script": "htop_ubi_9_3.sh"
+     }
+}
