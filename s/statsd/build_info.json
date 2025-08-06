@@ -1,0 +1,16 @@
+{
+    "maintainer": "Sankalp .",
+    "package_name": "statsd",
+    "github_url": "https://github.com/etsy/statsd.git",
+    "version": "0.10.2",
+    "default_branch": "master",
+    "package_dir": "s/statsd",
+    "build_script": "statsd_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "0.10.2_ubi9.3",
+         "build_script": "stastd_ubi_9_3.sh"
+     }
+}
