@@ -1,0 +1,16 @@
+{
+    "maintainer": "Firoj Patel",
+    "package_name": "minio",
+    "github_url": "https://github.com/minio/minio.git",
+    "version": "RELEASE.2025-07-16T15-35-03Z",
+    "default_branch": "master",
+    "package_dir": "m/minio",
+    "build_script": "minio_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "RELEASE.2025-07-16T15-35-03Z_ubi9.3",
+         "build_script": "minio_ubi_9_3.sh"
+     }
+}
