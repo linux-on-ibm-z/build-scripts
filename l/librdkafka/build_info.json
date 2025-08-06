@@ -1,0 +1,16 @@
+{
+    "maintainer": "Yash Ratawa",
+    "package_name": "librdkafka",
+    "github_url": "https://github.com/confluentinc/librdkafka.git",
+    "version": "2.10.1",
+    "default_branch": "master",
+    "package_dir": "l/librdkafka",
+    "build_script": "librdkafka_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "2.10.1_ubi9.3",
+         "build_script": "librdkafka_ubi_9_3.sh"
+     }
+}
