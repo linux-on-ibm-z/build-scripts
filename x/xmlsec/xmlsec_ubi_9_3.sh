@@ -24,7 +24,7 @@ set -ex
 PACKAGE_NAME=xmlsec
 LIBTOOL_VERSION=2.4.6
 OPENSSL_VERSION=1.1.1 
-PACKAGE_VERSION=xmlsec_1_3_7
+PACKAGE_VERSION=${1:-xmlsec_1_3_7}
 
 PACKAGE_URL=https://github.com/lsh123/xmlsec
 
