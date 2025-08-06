@@ -1,0 +1,16 @@
+{
+    "maintainer": "Vibhuti Sawant",
+    "package_name": "apachehttpserver",
+    "github_url": "https://github.com/apache/httpd",
+    "version": "2.4.65",
+    "default_branch": "master",
+    "package_dir": "a/apache-http-server",
+    "build_script": "apachehttpserver_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "2.4.65_ubi9.3",
+         "build_script": "apachehttpserver_ubi_9_3.sh"
+     }
+}
