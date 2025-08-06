@@ -1,0 +1,16 @@
+{
+    "maintainer": "Yugesh Nagvekar",
+    "package_name": "ruby",
+    "github_url": "http://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.5.tar.gz",
+    "version": "3.4.5",
+    "default_branch": "master",
+    "package_dir": "r/ruby",
+    "build_script": "ruby_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "3.4.5_ubi9.3",
+         "build_script": "ruby_ubi_9_3.sh"
+     }
+}
