@@ -10,7 +10,7 @@
     "validate_build_script": true,
     "use_non_root_user": false,
      "*": {
-         "dir": "xmlsec_1_3_7_ubi9.3",
+         "dir": "1_3_7_ubi9.3",
          "build_script": "xmlsec_ubi_9_3.sh"
      }
 }
