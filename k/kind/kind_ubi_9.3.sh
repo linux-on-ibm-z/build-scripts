@@ -23,7 +23,7 @@ set -ex
 PACKAGE_NAME=kind
 PACKAGE_VERSION=${1:-v0.29.0}
 PACKAGE_URL=https://github.com/kubernetes-sigs/kind.git
-export PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Kind/0.29.0/patch"
+export PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/main/k/kind/patch"
 
 yum install -y sudo docker git make wget tar gcc glibc.s390x make which patch
 
