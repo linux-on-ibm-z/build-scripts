@@ -1,0 +1,16 @@
+{
+    "maintainer": "Yash Ratawa",
+    "package_name": "xmlsec",
+    "github_url": "https://github.com/lsh123/xmlsec",
+    "version": "xmlsec_1_3_7",
+    "default_branch": "master",
+    "package_dir": "x/xmlsec",
+    "build_script": "xmlsec_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "xmlsec_1_3_7_ubi9.3",
+         "build_script": "xmlsec_ubi_9_3.sh"
+     }
+}
