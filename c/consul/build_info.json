@@ -1,0 +1,16 @@
+{
+    "maintainer": "Firoj Patel",
+    "package_name": "consul",
+    "github_url": "https://github.com/hashicorp/consul.git",
+    "version": "1.21.2",
+    "default_branch": "master",
+    "package_dir": "c/consul",
+    "build_script": "consul_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "1.21.2_ubi9.3",
+         "build_script": "consul_ubi_9_3.sh"
+     }
+}
