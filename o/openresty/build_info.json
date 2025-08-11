@@ -1,0 +1,16 @@
+{
+    "maintainer": "Sangita Nalkar",
+    "package_name": "openresty",
+    "github_url": "https://github.com/openresty/openresty.git",
+    "version": "1.27.1.2",
+    "default_branch": "master",
+    "package_dir": "o/openresty",
+    "build_script": "openresty_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "1.27.1.2",
+         "build_script": "openresty_ubi_9_3.sh"
+     }
+}
