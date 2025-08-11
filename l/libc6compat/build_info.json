@@ -1,0 +1,16 @@
+{
+    "maintainer": "Namrata Bhave",
+    "package_name": "libc6compat",
+    "github_url": "http://git.musl-libc.org/cgit/musl/refs/",
+    "version": "1.2.5",
+    "default_branch": "master",
+    "package_dir": "l/libc6compat",
+    "build_script": "libc6compat_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "1.2.5_ubi9.3",
+         "build_script": "libc6compat_ubi_9_3.sh"
+     }
+}
