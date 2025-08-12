@@ -5,12 +5,12 @@
     "version": "3.4.5",
     "default_branch": "master",
     "package_dir": "r/ruby",
-    "build_script": "ruby_ubi_9_3.sh",
+    "build_script": "ruby_ubi_9.3.sh",
     "docker_build": false,
     "validate_build_script": true,
     "use_non_root_user": false,
      "*": {
          "dir": "3.4.5_ubi9.3",
-         "build_script": "ruby_ubi_9_3.sh"
+         "build_script": "ruby_ubi_9.3.sh"
      }
 }
