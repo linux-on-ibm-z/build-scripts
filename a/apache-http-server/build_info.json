@@ -10,7 +10,6 @@
     "validate_build_script": true,
     "use_non_root_user": false,
      "*": {
-         "dir": "2.4.65_ubi9.3",
          "build_script": "apachehttpserver_ubi_9_3.sh"
      }
 }
