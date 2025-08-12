@@ -5,12 +5,12 @@
     "version": "v0.29.0",
     "default_branch": "master",
     "package_dir": "k/kind",
-    "build_script": "kind_ubi_9_3.sh",
+    "build_script": "kind_ubi_9.3.sh",
     "docker_build": false,
     "validate_build_script": true,
     "use_non_root_user": false,
      "*": {
          "dir": "0.29.0",
-         "build_script": "kind_ubi_9_3.sh"
+         "build_script": "kind_ubi_9.3.sh"
      }
 }
