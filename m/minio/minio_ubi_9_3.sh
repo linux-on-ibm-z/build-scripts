@@ -26,7 +26,7 @@ PACKAGE_VERSION=${1:-RELEASE.2025-07-18T21-56-31Z}
 PACKAGE_URL=https://github.com/minio/minio.git
 
 # Install dependencies
-yum install -y git make wget tar gcc curl which diffutils jq sudo
+yum install -y git make wget tar gcc which diffutils jq sudo
 sudo ln -sf /usr/bin/gcc /usr/bin/s390x-linux-gnu-gcc
 
 OS_NAME=$(cat /etc/os-release | grep ^PRETTY_NAME | cut -d= -f2)
