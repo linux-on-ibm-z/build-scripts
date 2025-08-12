@@ -10,7 +10,6 @@
     "validate_build_script": true,
     "use_non_root_user": false,
      "*": {
-         "dir": "3.4.1_ubi9.3",
          "build_script": "htop_ubi_9.3.sh"
      }
 }
