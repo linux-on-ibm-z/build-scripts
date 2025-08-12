@@ -5,13 +5,11 @@
     "version": "v1.6.0",
     "default_branch": "master",
     "package_dir": "o/opa",
-    "docker_cmd": "docker build -t ${package_name}:$PACKAGE_VERSION ${dir}",
     "build_script": "opa_ubi_9.3.sh",
     "docker_build": false,
     "validate_build_script": true,
     "use_non_root_user": false,
     "*": {
-        "dir": "ubi9.3",
         "build_script": "opa_ubi_9.3.sh"
     }
 }
