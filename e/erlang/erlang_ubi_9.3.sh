@@ -22,7 +22,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=erlang
-PACKAGE_VERSION=28.0.2
+PACKAGE_VERSION=${1:-28.0.2}
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://github.com/erlang/otp/releases/download/OTP-${PACKAGE_VERSION}/otp_src_${PACKAGE_VERSION}.tar.gz
 JAVA_PROVIDED=OpenJDK11
