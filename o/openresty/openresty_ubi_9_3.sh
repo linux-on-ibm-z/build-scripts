@@ -4,6 +4,7 @@
 # Package        : openresty
 # Version        : v1.27.1.2
 # Source repo    : https://github.com/openresty/openresty.git
+# Tested on      : UBI: 9.3
 # Language       : C
 # Travis-Check   : True
 # Script License : Apache License, Version 2 or later
