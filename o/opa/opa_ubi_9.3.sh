@@ -22,7 +22,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=opa
-PACKAGE_VERSION=1.6.0
+PACKAGE_VERSION=${1:-1.6.0}
 GO_VERSION=1.24.2
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://github.com/open-policy-agent/opa.git
