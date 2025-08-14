@@ -22,7 +22,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=haproxy
-PACKAGE_VERSION=3.2.1
+PACKAGE_VERSION=${1:-3.2.1}
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL_DIR=3.2
 PACKAGE_URL=https://www.haproxy.org/download/${PACKAGE_URL_DIR}/src/haproxy-${PACKAGE_VERSION}.tar.gz
