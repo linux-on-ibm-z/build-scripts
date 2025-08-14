@@ -22,14 +22,15 @@ set -ex
 
 # Variables
 PACKAGE_NAME=openresty
-PACKAGE_VERSION=${1:-1.27.1.2}
+PACKAGE_VERSION=${1:-v1.27.1.2}
+INSTALL_VERSION=1.27.1.2
 PACKAGE_URL=https://github.com/openresty/openresty.git
-INSTALL_URL=https://openresty.org/download/openresty-$PACKAGE_VERSION.tar.gz
+INSTALL_URL=https://openresty.org/download/openresty-$INSTALL_VERSION.tar.gz
 
 yum install -y sudo openssl-devel tar wget make gcc dos2unix perl patch pcre-devel zlib-devel perl-App-cpanminus git	
 
 #clone openresty
-git clone -b v$PACKAGE_VERSION $PACKAGE_URL
+git clone -b $PACKAGE_VERSION $PACKAGE_URL
 cd $PACKAGE_NAME
 export PCRE_VER=10.44
 export PCRE_PREFIX=/opt/pcre2
@@ -42,7 +43,7 @@ cd pcre2-$PCRE_VER/
 make -j$JOBS
 sudo PATH=$PATH make install
 wget --no-check-certificate $INSTALL_URL
-tar xvf openresty-$PACKAGE_VERSION.tar.gz
+tar xvf openresty-$INSTALL_VERSION.tar.gz
 ./configure 
 
 if ! sudo make install; then
