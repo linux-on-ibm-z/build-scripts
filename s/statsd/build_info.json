@@ -11,6 +11,6 @@
     "use_non_root_user": false,
      "*": {
          "dir": "0.10.2_ubi9.3",
-         "build_script": "stastd_ubi_9_3.sh"
+         "build_script": "statsd_ubi_9_3.sh"
      }
 }
