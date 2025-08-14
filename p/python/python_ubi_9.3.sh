@@ -22,7 +22,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=python
-PACKAGE_VERSION=3.13.5
+PACKAGE_VERSION=${1:-3.13.5}
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://www.python.org/ftp/${PACKAGE_NAME}/${PACKAGE_VERSION}/Python-${PACKAGE_VERSION}.tgz
 
