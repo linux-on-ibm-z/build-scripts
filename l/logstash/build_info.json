@@ -1,0 +1,16 @@
+{
+    "maintainer": "Vibhuti Sawant",
+    "package_name": "logstash",
+    "github_url": "https://github.com/elastic/logstash",
+    "version": "9.1.0",
+    "default_branch": "main",
+    "package_dir": "l/logstash",
+    "build_script": "logstash_ubi_9_3.sh",
+    "docker_build": true,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "dir": "ubi9.3",
+         "build_script": "logstash_ubi_9_3.sh"
+     }
+}
