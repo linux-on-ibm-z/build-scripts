@@ -1,0 +1,15 @@
+{
+    "maintainer": "Nikhil Shinde",
+    "package_name": "opa",
+    "github_url": "https://github.com/open-policy-agent/opa",
+    "version": "v1.6.0",
+    "default_branch": "main",
+    "package_dir": "o/opa",
+    "build_script": "opa_ubi_9.3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "build_script": "opa_ubi_9.3.sh"
+     }
+}
