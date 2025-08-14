@@ -1,0 +1,15 @@
+{
+    "maintainer": "Yasir Ashfaq",
+    "package_name": "erlang",
+    "github_url": "https://github.com/erlang/otp",
+    "version": "OTP-28.0.2",
+    "default_branch": "master",
+    "package_dir": "e/erlang",
+    "build_script": "erlang_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "build_script": "erlang_ubi_9_3.sh"
+     }
+}
