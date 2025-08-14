@@ -24,7 +24,12 @@ PACKAGE_URL=https://github.com/mongodb/mongo-c-driver.git
 
 # Install dependencies.
 yum install -y yum-utils python3-devel gcc gcc-c++ git pkgconfig kmod perl make cmake gcc-c++ wget tar diffutils openssl-devel
-
+yum install -y yum-utils
+yum-config-manager --add-repo http://rpmfind.net/linux/centos-stream/9-stream/AppStream/s390x/os/
+yum-config-manager --add-repo http://rpmfind.net/linux/centos-stream/9-stream/BaseOS/s390x/os/
+wget https://www.centos.org/keys/RPM-GPG-KEY-CentOS-Official
+mv RPM-GPG-KEY-CentOS-Official /etc/pki/rpm-gpg/.
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Official
 yum install -y texlive kernel-devel
 
 # Create softlink for python
