@@ -23,7 +23,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=logstash
-PACKAGE_VERSION=9.1.0
+PACKAGE_VERSION=${1:-9.1.0}
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://artifacts.elastic.co/downloads/logstash/logstash-oss-"$PACKAGE_VERSION"-linux-aarch64.tar.gz
 JAVA_PROVIDED=OpenJDK17
