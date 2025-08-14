@@ -26,7 +26,7 @@ PACKAGE_VERSION=1.6.0
 GO_VERSION=1.24.2
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://github.com/open-policy-agent/opa.git
-PATCH_URL=https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/main/t/terraform/patch
+PATCH_URL=https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/main/o/opa/patch
 
 # Install dependencies
 yum install -y gcc git make python3 python3-pip tar wget xz hostname
