@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------
 #
 # Package        : Terrform
-# Version        : 1.12.2
+# Version        : v1.12.2
 # Source repo    : https://github.com/hashicorp/terraform
 # Tested on      : UBI: 9.3
 # Language       : c
