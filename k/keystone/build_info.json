@@ -1,0 +1,15 @@
+{
+    "maintainer": "Varun Ojha",
+    "package_name": "keystone",
+    "github_url": "https://github.com/openstack/keystone",
+    "version": "27.0.0",
+    "default_branch": "master",
+    "package_dir": "k/keystone",
+    "build_script": "keystone_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "build_script": "keystone_ubi_9.3.sh"
+     }
+}
