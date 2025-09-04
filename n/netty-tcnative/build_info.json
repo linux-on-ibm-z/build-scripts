@@ -1,0 +1,15 @@
+{
+    "maintainer": "Soham Munshi",
+    "package_name": "netty-tcnative",
+    "github_url": "https://github.com/netty/netty-tcnative.git",
+    "version": "2.0.72",
+    "default_branch": "main",
+    "package_dir": "n/netty-tcnative",
+    "build_script": "netty-tcnative_ubi_9_3.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "build_script": "netty-tcnative_ubi_9.3.sh"
+     }
+}
