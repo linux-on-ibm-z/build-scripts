@@ -28,9 +28,14 @@ PACKAGE_URL=https://github.com/kubernetes/test-infra.git
 PATCH_URL=https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/main/p/prow/patch
 
 # Install dependencies
-yum install -y zip tar unzip git vim wget make python3-devel gcc gcc-c++ libtool autoconf expat-devel openssl-devel zlib-devel perl-CPAN perl-devel rsync 
+yum install -y zip tar unzip git vim wget make python3-devel gcc gcc-c++ libtool autoconf expat-devel openssl-devel zlib-devel perl-CPAN perl-devel rsync
+yum install -y yum-utils
+yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+yum install -y glibc.s390x docker-ce docker-ce-cli containerd.io make which patch
+dockerd &
 OS_NAME=$(cat /etc/os-release | grep ^PRETTY_NAME | cut -d= -f2)
 SCRIPT_DIR=$(pwd)
+usermod -aG docker $USER && newgrp docker
 
 # Install Go
 cd $SCRIPT_DIR
