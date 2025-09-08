@@ -4,6 +4,7 @@
 # Package        : ocaml
 # Version        : 5.3.0
 # Source repo    : https://github.com/ocaml/ocaml.git
+# Tested on      : UBI: 9.3
 # Language       : ocaml
 # Travis-Check   : True
 # Script License : Apache License, Version 2 or later
