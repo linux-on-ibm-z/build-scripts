@@ -12,7 +12,7 @@ from datetime import datetime
 
 
 GITHUB_BUILD_SCRIPT_BASE_REPO = "build-scripts"
-GITHUB_BUILD_SCRIPT_BASE_OWNER = "ppc64le"
+GITHUB_BUILD_SCRIPT_BASE_OWNER = "linux-on-ibm-z"
 
 HOME = os.getcwd()
 

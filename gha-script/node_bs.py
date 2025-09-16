@@ -153,7 +153,7 @@ def raise_pull_request(branch_pkg, base="master"):
     else:
         user_name=input("Enter Github username:")
 
-    pr_owner = "ppc64le"
+    pr_owner = "linux-on-ibm-z"
     if args.github_token_arg:
         github_token = args.github_token_arg
     else:

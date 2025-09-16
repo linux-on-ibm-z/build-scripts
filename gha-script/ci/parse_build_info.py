@@ -72,11 +72,11 @@ else:
 
 package_name = package_name.lower()
 
-image_name = "ibmcom/" + package_name + "-ppc64le:" + version.replace('/', '_')
+image_name = "ibmcom/" + package_name + "-linux-on-ibm-z:" + version.replace('/', '_')
 version_key =  None
 branch = "master"
 build_scipt = ''
-raw_url_prefix = "https://raw.githubusercontent.com/ppc64le/build-scripts/" + branch + "/" + "/" .join([package_name[0], package_name])
+raw_url_prefix = "https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/" + branch + "/" + "/" .join([package_name[0], package_name])
 
 config_json = {}
 

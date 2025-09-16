@@ -8,7 +8,7 @@ import json
 
 
 GITHUB_BUILD_SCRIPT_BASE_REPO = "build-scripts"
-GITHUB_BUILD_SCRIPT_BASE_OWNER = "vishwajeet-ibm"
+GITHUB_BUILD_SCRIPT_BASE_OWNER = "linux-on-ibm-z"
 HOME = os.getcwd()
 
 package_data = {}
