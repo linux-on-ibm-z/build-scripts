@@ -21,7 +21,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=MariaDB-Connector-ODBC
-PACKAGE_VERSION=3.2.6
+PACKAGE_VERSION=${1:-3.2.6}
 SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://github.com/MariaDB/mariadb-connector-odbc.git
 
