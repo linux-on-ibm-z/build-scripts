@@ -41,6 +41,8 @@ sudo tar -C /usr/local -xvzf go${GO_VERSION}.linux-s390x.tar.gz
 
 # Clone the repository
 git clone -b $PACKAGE_VERSION $PACKAGE_URL
+go install mvdan.cc/gofumpt@latest
+gofumpt -l -w .
 cd $PACKAGE_NAME
 
 if ! make; then
