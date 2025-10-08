@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------
 #
 # Package        : ruby
-# Version        : v3.4.5
+# Version        : 3.4.5
 # Source repo    : http://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.5.tar.gz
 # Tested on      : UBI: 9.3
 # Language       : Ruby
@@ -23,7 +23,7 @@ set -ex
 # Variables
 PACKAGE_NAME=ruby
 PACKAGE_VERSION=${1:-3.4.5}
-PACKAGE_URL=http://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.5.tar.gz
+PACKAGE_URL=http://cache.ruby-lang.org/pub/ruby/3.4/${PACKAGE_NAME}-${PACKAGE_VERSION}.tar.gz
 
 yum install -y sudo openssl-devel gcc make wget tar libyaml-devel gcc make glibc-devel autoconf automake libtool wget
 
@@ -51,7 +51,7 @@ yum install -y bison flex readline-devel
 #Install ruby
 wget $PACKAGE_URL
 tar zxf $PACKAGE_NAME-$PACKAGE_VERSION.tar.gz
-cd ruby-$PACKAGE_VERSION
+cd $PACKAGE_NAME-$PACKAGE_VERSION
 
 if ! ./configure ; then
     echo "------------------$PACKAGE_NAME: configuration fails---------------------"
