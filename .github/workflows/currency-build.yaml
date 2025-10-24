@@ -417,7 +417,7 @@ jobs:
 
       - name: Upload Scanner Results
         env:
-          gha_currency_service_id_api_key_dev: ${{ secrets.gha_currency_service_id_api_key_dev }}
+          GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
           PACKAGE_NAME: ${{ inputs.package_name }}
           VERSION: ${{ inputs.version }}
         run: |
