@@ -37,11 +37,12 @@ BOM_TOOLS = [
 ]
 CLOUD_OBJECT_BUCKET_NAME = "ose-s390x-toolci-bucket-production"
 CLOUD_OBJECT_CVE_SBOM_BUCKET = "ose-s390x-sbom-cve-details-production"
-CLOUD_OBJECT_STORAGE_URL = "https://s3.us-south.cloud-object-storage.appdomain.cloud/"
+CLOUD_OBJECT_STORAGE_URL = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
 CLOUD_OBJECT_AUTH_ENDPOINT = "https://iam.cloud.ibm.com/identity/token"
 
 
 SCAN_TYPES = ["source", "image"]
+
 
 
 
