@@ -219,6 +219,8 @@ class COSWrapper:
         :rtype: str
         """
         object_url = f"{CLOUD_OBJECT_STORAGE_URL}/{self.module_bucket}/{artifact_name}"
+        print(object_url)
+        
         response = requests.put(
             object_url,
             data = open(f"{artifact_name}",'rb').read(),
@@ -228,7 +230,8 @@ class COSWrapper:
                 "Authorization": f"Bearer {self.get_auth_token()}"
             }
         )
-        print(response)
+        print(json.dumps(dict(response.headers), indent=4))
+        print(response.text)
         if response.status_code == 200:
             return object_url
         return response
@@ -261,6 +264,7 @@ class COSWrapper:
                 return None
         except Exception as e:
            print(e)
+
 
 
 
