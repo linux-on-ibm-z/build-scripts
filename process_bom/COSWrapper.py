@@ -228,6 +228,7 @@ class COSWrapper:
                 "Authorization": f"Bearer {self.get_auth_token()}"
             }
         )
+        print(responce)
         if response.status_code == 200:
             return object_url
         return response
@@ -260,6 +261,7 @@ class COSWrapper:
                 return None
         except Exception as e:
            print(e)
+
 
 
 
