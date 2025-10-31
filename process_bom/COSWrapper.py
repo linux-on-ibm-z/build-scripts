@@ -220,14 +220,14 @@ class COSWrapper:
         """
         object_url = f"{CLOUD_OBJECT_STORAGE_URL}/{self.module_bucket}/{artifact_name}"
         print(object_url)
-        
         response = requests.put(
             object_url,
-            data = open(f"{artifact_name}",'rb').read(),
+            #data = open(f"{artifact_name}",'rb').read(),
+            data=f,
             headers = {
                 'Content-Type': content_type,
                 'Content-Length': str(os.stat(f"{artifact_name}").st_size),
-                "Authorization": f"Bearer {self.get_auth_token()}"
+                "Authorization": f"bearer {self.get_auth_token()}",
             }
         )
         print(json.dumps(dict(response.headers), indent=4))
@@ -264,6 +264,7 @@ class COSWrapper:
                 return None
         except Exception as e:
            print(e)
+
 
 
 
