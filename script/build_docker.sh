@@ -14,7 +14,7 @@ match_version=$(python $CUR_DIR/script/match_version_buildinfo.py)
 
 if [ $build_docker != false ];then
     if [[ $(jq --arg ver "$match_version" '.[$ver]' $config_file) != null ]]; then
-        docker_builddir=$(jq -r --arg ver "$match_version" '.[$ver].dir' $config_file)
+        docker_builddir=$(jq -r --arg ver "$match_version" '.[$ver].dir' "$config_file"); docker_builddir=${docker_builddir:-.}; [ "$docker_builddir" = "null" ] && docker_builddir="."
         args=$(jq -r --arg ver "$match_version" '.[$ver].args' $config_file)
         patches=$(jq -r --arg ver "$match_version" '.[$ver].patches' $config_file)
         # By default send PACKAGE_VERSION argument.
