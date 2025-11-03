@@ -2,7 +2,7 @@
   "maintainer": "Yash Ratawa",
   "package_name": "python",
   "github_url": "https://github.com/python/cpython",
-  "version": "3.13.15",
+  "version": "3.13.5",
   "wheel_build" : true,
   "package_dir": "p/python",
   "default_branch": "main",
