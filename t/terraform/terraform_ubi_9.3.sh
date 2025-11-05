@@ -22,7 +22,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=terraform
-PACKAGE_VERSION=v1.12.2
+PACKAGE_VERSION=${1:-v1.12.2}
 GO_VERSION=1.24.2
 PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/main/t/terraform/patch"
 SCRIPT_DIR=$(pwd)

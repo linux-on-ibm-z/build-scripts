@@ -14,11 +14,11 @@ match_version=$(python $CUR_DIR/script/match_version_buildinfo.py)
 
 if [ $build_docker != false ];then
     if [[ $(jq --arg ver "$match_version" '.[$ver]' $config_file) != null ]]; then
-        docker_builddir=$(jq -r --arg ver "$match_version" '.[$ver].dir' $config_file)
+        docker_builddir=$(jq -r --arg ver "$match_version" '.[$ver].dir' "$config_file"); docker_builddir=${docker_builddir:-.}; [ "$docker_builddir" = "null" ] && docker_builddir="."
         args=$(jq -r --arg ver "$match_version" '.[$ver].args' $config_file)
         patches=$(jq -r --arg ver "$match_version" '.[$ver].patches' $config_file)
         # By default send PACKAGE_VERSION argument.
-        build_args ="--build-arg PACKAGE_VERSION=$version"
+        build_args="--build-arg PACKAGE_VERSION=$version"
         if [ $args != null ]; then
             for row in $(echo "$args" | jq -r 'to_entries[] | @base64'); do
             key=$(echo "$row" | base64 -d | jq -r '.key')
@@ -49,7 +49,34 @@ if [ $build_docker != false ];then
     echo "Building docker image"
     echo "sudo docker build $build_args -t $image_name $docker_builddir"
     echo "*************************************************************************************"
-    sudo docker build $build_args -t $image_name $docker_builddir
+    sudo docker build $build_args -t $image_name $docker_builddir > docker_build.log 2>&1 &
+    SCRIPT_PID=$!
+    while ps -p $SCRIPT_PID > /dev/null
+    do 
+      echo "$SCRIPT_PID is running"
+      sleep 100
+    done
+    wait $SCRIPT_PID
+    my_pid_status=$?
+    docker_build_size=$(stat -c %s docker_build.log)
+    
+    if [ $my_pid_status != 0 ];
+    then
+        if [ $docker_build_size -lt 1800000 ];
+        then
+           cat docker_build.log
+        else
+           tail -300 docker_build.log
+        fi
+        exit 1
+    else
+        if [ $docker_build_size -lt 1800000 ];
+        then
+           cat docker_build.log
+        else
+           tail -300 docker_build.log
+        fi    
+    fi
     docker save -o "$HOME/build/$TRAVIS_REPO_SLUG/image.tar" $image_name
 else
     echo "Docker image is not supported"
