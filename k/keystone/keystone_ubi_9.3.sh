@@ -21,7 +21,7 @@ set -ex
 
 # Variables
 PACKAGE_NAME=keystone
-PACKAGE_VERSION=27.0.0
+PACKAGE_VERSION=${1:-27.0.0}
 KEYSTONE_DBPASS=keystone
 KEYSTONE_HOST_IP=localhost
 SCRIPT_DIR=$(pwd)
