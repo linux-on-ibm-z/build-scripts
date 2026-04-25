@@ -2,7 +2,7 @@
   "maintainer": "linuxonz",
   "package_name": "fluentd",
   "github_url": "https://github.com/fluent/fluentd.git",
-  "version": "v1.18.0",
+  "version": "v1.18.1",
   "default_branch": "master",
   "package_dir": "f/fluentd/",
   "build_script": "fluentd_ubi_9.3.sh",
