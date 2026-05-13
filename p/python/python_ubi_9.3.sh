@@ -8,7 +8,7 @@
 # Language       : python
 # Travis-Check   : True
 # Script License : Apache License, Version 2 or later
-# Maintainer     : Yash Ratawa <Yash.Ratawa@ibm.com>
+# Maintainer     : Sankalp <sankalp@ibm.com>
 #
 # Disclaimer: This script has been tested in root mode on given
 # ==========  platform using the mentioned version of the package.
