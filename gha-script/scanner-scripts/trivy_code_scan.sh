@@ -8,7 +8,7 @@ docker pull "$DOCKER_IMAGE"
 if [ "$validate_build_script" == true ]; then
 
     echo "[INFO] Fetching latest Trivy version..."
-    TRIVY_VERSION=$(curl -s https://api.github.com/repos/aquasecurity/trivy/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
+    TRIVY_VERSION=$(curl -s https://api.github.com/repos/aquasecurity/trivy/releases/latest | awk -F'"' '$2=="tag_name" {print $4}')
     FILE_NAME="trivy_${TRIVY_VERSION#v}_Linux-s390x.tar.gz"
     CHECKSUM_FILE="trivy_${TRIVY_VERSION#v}_checksums.txt"
 
