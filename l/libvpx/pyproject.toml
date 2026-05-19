@@ -39,5 +39,5 @@ where = ["local"]
 libvpx = ["bin/*", "lib/*", "lib/pkgconfig/*", "include/vpx/*"]
 
 [tool.distutils.bdist_wheel]
-plat-name = "linux_ppc64le"  # Explicitly set the platform tag
+plat-name = "linux_s390x"  # Explicitly set the platform tag
 universal = false  # Disable universal wheel (forces platform-specific build)
