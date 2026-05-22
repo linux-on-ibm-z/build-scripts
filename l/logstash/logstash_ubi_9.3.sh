@@ -6,8 +6,8 @@
 # Source repo    : https://github.com/elastic/logstash
 # Tested on      : UBI: 9.3
 # Language       : go
-# Travis-Check   : Java
-# Travis-Check   : True
+# Ci-Check   : Java
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Vibhuti Sawant <vibhuti.sawant@ibm.com>
 #

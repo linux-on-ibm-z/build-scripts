@@ -6,7 +6,7 @@
 # Source repo    : https://github.com/open-policy-agent/opa.git
 # Tested on      : UBI: 9.3
 # Language       : go
-# Travis-Check   : True
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Nikhil Shinde <Nikhil.Shinde7@ibm.com>
 #

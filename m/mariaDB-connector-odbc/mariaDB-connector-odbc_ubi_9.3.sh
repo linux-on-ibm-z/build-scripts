@@ -6,7 +6,7 @@
 # Source repo    : https://github.com/mariadb-corporation/mariadb-connector-odbc
 # Tested on      : UBI: 9.3
 # Language       : c
-# Travis-Check   : True
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Yasir Ashfaq <Yasir.Ashfaq1@ibm.com>
 #

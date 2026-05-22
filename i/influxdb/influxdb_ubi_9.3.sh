@@ -6,7 +6,7 @@
 # Source repo    : https://github.com/influxdata/influxdb
 # Tested on      : UBI: 9.3
 # Language       : rust
-# Travis-Check   : True
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Yugesh Nagvekar <Yugesh.Nagvekar@ibm.com>
 #

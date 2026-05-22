@@ -6,7 +6,7 @@
 # Source repo    : http://git.musl-libc.org/cgit/musl/snapshot/
 # Tested on      : UBI: 9.3
 # Language       : C
-# Travis-Check   : True
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Namrata Bhave <namrata.bhave@ibm.com>
 #
