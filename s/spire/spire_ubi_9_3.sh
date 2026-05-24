@@ -6,7 +6,7 @@
 # Source repo    : https://github.com/spiffe/spire.git
 # Tested on      : UBI: 9.3
 # Language       : Go
-# Travis-Check   : True
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Sonal Deshmukh <sonal.deshmukh1@ibm.com>
 #

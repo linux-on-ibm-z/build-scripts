@@ -6,7 +6,7 @@
 # Source repo    : http://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.5.tar.gz
 # Tested on      : UBI: 9.3
 # Language       : Ruby
-# Travis-Check   : True
+# Ci-Check   : True
 # Script License : Apache License, Version 2 or later
 # Maintainer     : Yugesh Nagvekar <yugesh.nagvekar@ibm.com>
 #
