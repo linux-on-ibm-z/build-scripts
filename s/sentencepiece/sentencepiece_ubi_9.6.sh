@@ -37,14 +37,14 @@ cmake .. \
     -DCMAKE_BUILD_TYPE=Release \
     -DSPM_ENABLE_SHARED=ON
 make -j"$(nproc)"
-make install
+sudo make install
 cd ..
 
 # Build Python wheel
 cd python
 cp ../LICENSE .
 
-pip3 install --upgrade pip build
+pip3 install --upgrade pip setuptools wheel build
 
 if ! (python3 -m build --wheel --no-isolation) ; then
     echo "------------------$PACKAGE_NAME:Build_fails-------------------------------------"
@@ -55,7 +55,7 @@ fi
 
 # Install wheel
 WHEEL_FILE=$(find dist -name "*.whl" | head -1)
-if ! (pip install "$WHEEL_FILE") ; then
+if ! (pip3 install "$WHEEL_FILE") ; then
     echo "------------------$PACKAGE_NAME:Install_fails-------------------------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail | Install_Fails"
@@ -67,7 +67,10 @@ echo "$PACKAGE_URL $PACKAGE_NAME"
 echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Pass | Install_Success"
 
 # Test
-if ! (python3 -c "import sentencepiece; print(sentencepiece.__version__)") ; then
+# Note: python setup.py test is deprecated in setuptools>=61.0
+# Using pytest instead
+pip3 install pytest
+if ! (pytest test/) ; then
     echo "------------------$PACKAGE_NAME:Install_success_but_test_fails---------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail | Install_success_but_test_Fails"
@@ -78,4 +81,3 @@ else
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Pass | Both_Install_and_Test_Success"
     exit 0
 fi
-
