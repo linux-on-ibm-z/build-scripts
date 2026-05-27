@@ -1,9 +1,22 @@
-#!/bin/bash
-# © Copyright IBM Corporation 2026.
-# LICENSE: Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
-# Instructions:
-# Download build script: wget https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Pandas/2.2.3/build_pandas.sh
-# Execute build script: bash build_pandas.sh    (provide -h for help)
+#!/bin/bash -e
+# ----------------------------------------------------------------------------
+#
+# Package           : pandas
+# Version           : 2.2.3
+# Source repo       : https://github.com/pandas-dev/pandas
+# Tested on         : UBI:9.6
+# Language          : Python
+# Ci-Check          : True
+# Script License    : Apache License, Version 2 or later
+# Maintainer        : Pranjal
+#
+# Disclaimer: This script has been tested in root mode on given
+# ==========  platform using the mentioned version of the package.
+#             It may not work as expected with newer versions of the
+#             package and/or distribution. In such case, please
+#             contact "Maintainer" of this script.
+#
+# ----------------------------------------------------------------------------
 
 set -e -o pipefail
 
