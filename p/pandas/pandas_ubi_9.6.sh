@@ -4,6 +4,7 @@
 # Instructions:
 # Download build script: wget https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Pandas/2.2.3/build_pandas.sh
 # Execute build script: bash build_pandas.sh    (provide -h for help)
+
 set -e -o pipefail
 
 PACKAGE_NAME="pandas"
@@ -29,24 +30,6 @@ if [ -f "/etc/os-release" ]; then
 else
     printf -- "Error: /etc/os-release file not found\n" |& tee -a "$LOG_FILE"
     exit 1
-fi
-
-# Install Python 3.12.4
-# Install Python 3.12.4
-if [[ "$ID" == "rhel" ]]; then
-    echo "RHEL detected - using system Python (fallback)"
-    sudo yum install -y python3 python3-pip
-else
-    wget -q https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Python3/3.12.4/build_python3.sh
-    sed -i 's/rhel-9.2/rhel-9.7/g' build_python3.sh
-    bash build_python3.sh -y
-    export PATH=/usr/local/bin:$PATH
-    sudo ln -sf /usr/local/bin/python3 /usr/bin/python
-fi
-
-# Ensure python command exists
-if ! command -v python >/dev/null; then
-    sudo ln -sf /usr/local/bin/python3 /usr/bin/python
 fi
 
 function prepare() {
@@ -82,7 +65,6 @@ function cleanup() {
 function configureAndInstall() {
     printf -- '\nConfiguration and Installation started \n'
 
-    #Installing dependencies
     printf -- 'User responded with Yes. \n'
 
     cd "${CURDIR}"
@@ -95,27 +77,34 @@ function configureAndInstall() {
     fi
 
     # Install generic deps
-    pip3 install build wheel setuptools ninja numpy pytest "versioneer[toml]"
+    pip3 install build wheel setuptools ninja numpy pytest pytest-xdist "versioneer[toml]"
 
-    # Install EXACT pandas build deps
+    # Install pandas build deps
     pip3 install "Cython~=3.0.5" "meson==1.2.1" "meson-python==0.13.1" "patchelf>=0.11.0"
 
     # Build and install package
     printf -- 'Building ${PACKAGE_NAME} \n'
 
-    python -m build . --wheel --no-isolation
-    pip install dist/*.whl
+    python3 -m build . --wheel --no-isolation
+    pip3 install dist/*.whl
 
     printf -- 'Built ${PACKAGE_NAME} successfully \n\n'
 }
 
 function runTest() {
     printf -- 'Running tests \n'
+
     cd "${CURDIR}"
+
     set +e
-    pytest |& tee -a "$LOG_FILE"
+
+    python3 -c "import pandas; print(pandas.__version__)"
+
+    pytest --pyargs pandas |& tee -a "$LOG_FILE"
+
     set -e
 }
+
 
 function logDetails() {
     printf -- 'SYSTEM DETAILS\n' >"$LOG_FILE"
@@ -128,7 +117,6 @@ function logDetails() {
     printf -- "Request details : PACKAGE NAME= %s , VERSION= %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" |& tee -a "$LOG_FILE"
 }
 
-# Print the usage message
 function printHelp() {
     echo
     echo "Usage: "
@@ -150,7 +138,6 @@ while getopts "h?dyt" opt; do
         ;;
     t)
         TESTS="true"
-
         ;;
     esac
 done
@@ -167,35 +154,49 @@ logDetails
 prepare
 
 DISTRO="$ID-$VERSION_ID"
+
 case "$DISTRO" in
+
 "ubuntu-22.04" | "ubuntu-24.04" | "ubuntu-25.10")
     printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "$LOG_FILE"
     printf -- "Installing dependencies... it may take some time.\n"
+
     sudo apt-get update
-    sudo apt-get install -y git cmake build-essential python3 python3-pip python3-venv |& tee -a "$LOG_FILE"
+
+    sudo apt-get install -y \
+        git cmake build-essential \
+        python3 python3-pip python3-venv python3-dev \
+        |& tee -a "$LOG_FILE"
+
     configureAndInstall |& tee -a "$LOG_FILE"
     ;;
 
 "rhel-8.10" | "rhel-9.4" | "rhel-9.6" | "rhel-9.7" | "rhel-10.0" | "rhel-10.1")
     printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "$LOG_FILE"
     printf -- "Installing dependencies... it may take some time.\n"
-    sudo yum install -y git cmake gcc gcc-c++ make python3 python3-pip python3-devel |& tee -a "$LOG_FILE"
+
+    sudo yum install -y \
+        git cmake gcc gcc-c++ make \
+        python3 python3-pip python3-devel \
+        |& tee -a "$LOG_FILE"
+
     configureAndInstall |& tee -a "$LOG_FILE"
     ;;
 
 "sles-15.7" | "sles-16.0")
     printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "$LOG_FILE"
     printf -- "Installing dependencies... it may take some time.\n"
-    sudo zypper install -y git cmake gcc gcc-c++ make python3 python3-pip |& tee -a "$LOG_FILE"
+
+    sudo zypper install -y \
+        git cmake gcc gcc-c++ make \
+        python3 python3-pip python3-devel \
+        |& tee -a "$LOG_FILE"
+
     configureAndInstall |& tee -a "$LOG_FILE"
     ;;
 
 *)
     printf -- "%s not supported \n" "$DISTRO" |& tee -a "$LOG_FILE"
-    printf -- "Supported distributions:\n" |& tee -a "$LOG_FILE"
-    printf -- "  - Ubuntu: 22.04, 24.04, 25.10\n" |& tee -a "$LOG_FILE"
-    printf -- "  - RHEL: 8.10, 9.4, 9.6, 9.7, 10.0, 10.1\n" |& tee -a "$LOG_FILE"
-    printf -- "  - SLES: 15.7 (SP7), 16.0\n" |& tee -a "$LOG_FILE"
     exit 1
     ;;
 esac
