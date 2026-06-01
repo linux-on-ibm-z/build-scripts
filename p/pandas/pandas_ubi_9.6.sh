@@ -71,6 +71,8 @@ echo "------------------$PACKAGE_NAME:Install_success-------------------------"
 echo "$PACKAGE_URL $PACKAGE_NAME"
 echo "$PACKAGE_NAME | $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Pass | Install_Success"
 
+cd /
+
 python3 -c "import pandas; print(pandas.__version__)"
 
 if ! (pytest --pyargs pandas); then
