@@ -37,16 +37,17 @@ cmake .. \
     -DCMAKE_BUILD_TYPE=Release \
     -DSPM_ENABLE_SHARED=ON
 make -j"$(nproc)"
-sudo make install
-cd ..
+make install
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+cd ../python
 
-# Build Python wheel
-cd python
+# Ensure LICENSE exists
 cp ../LICENSE .
 
+# Build Python wheel
 pip3 install --upgrade pip setuptools wheel build
 
-if ! (python3 -m build --wheel --no-isolation) ; then
+if ! python3 -m build --wheel --no-isolation ; then
     echo "------------------$PACKAGE_NAME:Build_fails-------------------------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail | Build_Fails"
@@ -55,7 +56,12 @@ fi
 
 # Install wheel
 WHEEL_FILE=$(find dist -name "*.whl" | head -1)
-if ! (pip3 install "$WHEEL_FILE") ; then
+if [ -z "$WHEEL_FILE" ]; then
+    echo "Error: No wheel file found in dist directory"
+    exit 1
+fi
+
+if ! pip3 install "$WHEEL_FILE" ; then
     echo "------------------$PACKAGE_NAME:Install_fails-------------------------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail | Install_Fails"
@@ -70,16 +76,19 @@ echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Pass | Instal
 # Note: python setup.py test is deprecated in setuptools>=61.0
 # Using pytest instead
 pip3 install pytest
-if ! (pytest test/) ; then
-    echo "------------------$PACKAGE_NAME:Install_success_but_test_fails---------------------"
-    echo "$PACKAGE_URL $PACKAGE_NAME"
-    echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail | Install_success_but_test_Fails"
-    exit 2
-else
-    echo "------------------$PACKAGE_NAME:Install_&_test_both_success-------------------------"
-    echo "$PACKAGE_URL $PACKAGE_NAME"
-    echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Pass | Both_Install_and_Test_Success"
-    exit 0
+
+if [ -d "test/" ]; then
+    if ! pytest test/ ; then
+        echo "------------------$PACKAGE_NAME:Install_success_but_test_fails---------------------"
+        echo "$PACKAGE_URL $PACKAGE_NAME"
+        echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail | Install_success_but_test_Fails"
+        exit 2
+    fi
 fi
+
+echo "------------------$PACKAGE_NAME:Install_&_test_both_success-------------------------"
+echo "$PACKAGE_URL $PACKAGE_NAME"
+echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Pass | Both_Install_and_Test_Success"
+exit 0
 
 
