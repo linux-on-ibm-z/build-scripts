@@ -12,5 +12,8 @@
     "use_non_root_user": false,
     "v4.*.*": {
         "build_script": "cachetools_ubi_9.3.sh"
+    },
+    "v6.0.0": {
+        "build_script": "cachetools_v6.0.0_ubi_9.7.sh"
     }
 }
