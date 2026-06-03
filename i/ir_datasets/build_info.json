@@ -1,0 +1,16 @@
+{
+  "maintainer": "Vansh",
+  "package_name": "ir_datasets",
+  "github_url": "https://github.com/allenai/ir_datasets",
+  "version": "v0.5.11",
+  "wheel_build" : true,
+  "package_dir": "i/ir_datasets",
+  "default_branch": "master",
+  "build_script": "ir_datasets_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "v0.5.11": {
+    "build_script": "ir_datasets_ubi_9.7.sh"
+  }
+}
