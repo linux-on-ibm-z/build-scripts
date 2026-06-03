@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-set -euo pipefail
 # -----------------------------------------------------------------------------
 #
 # Package       : ir_datasets
-# Version       : 0.5.1
+# Version       : 0.5.11
 # Source repo   : https://github.com/allenai/ir_datasets
 # Tested on     : UBI:9.7
 # Language      : Python
-# Travis-Check  : True
+# Ci-Check      : True
 # Script License: Apache License, Version 2 or later
 # Maintainer    : Vansh <vansh@ibm.com>
 # Disclaimer: This script has been tested in root mode on given
