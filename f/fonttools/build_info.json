@@ -1,0 +1,15 @@
+{
+  "maintainer": "Sai Sindhuri",
+  "package_name": "fonttools",
+  "github_url": "https://github.com/fonttools/fonttools",
+  "version": "4.57.0",
+  "default_branch": "master",
+  "package_dir": "f/fonttools/",
+  "build_script": "fonttools_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "fonttools_ubi_9.7.sh"
+  }
+}
