@@ -8,7 +8,7 @@ import json
 
 
 GITHUB_BUILD_SCRIPT_BASE_REPO = "build-scripts"
-GITHUB_BUILD_SCRIPT_BASE_OWNER = "vishwajeet-ibm"
+GITHUB_BUILD_SCRIPT_BASE_OWNER = "linux-on-ibm-z"
 HOME = os.getcwd()
 
 package_data = {}
@@ -23,7 +23,7 @@ def trigger_basic_validation_checks(file_name):
         "# Tested on": "",
         "# Maintainer": "maintainer",
         "# Language": "package_type",
-        "# Ci-Check": "travis_check"
+        "# Ci-Check": "ci_check"
     }
     matched_keys = []
     # Check if apache license file exists
@@ -179,8 +179,8 @@ def trigger_build_validation_travis(pr_number):
             trigger_basic_validation_checks(file_name)
             
             #check Ci-Check from package header  
-            travis_check=package_data['travis_check'].lower()
-            if travis_check=="true":
+            ci_check=package_data['ci_check'].lower()
+            if ci_check=="true":
                 # Build/test script files
                 trigger_script_validation_checks(file_name)
             else:
