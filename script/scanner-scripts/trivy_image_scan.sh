@@ -3,7 +3,8 @@
 image_name=$IMAGE_NAME
 build_docker=$BUILD_DOCKER
 
-DOCKER_IMAGE="icr-ose4s390x-dev/trivy-db"
+DOCKER_IMAGE="icr-ose4s390x-prod/trivy-db"
+echo "$COS_ACCESS_SERVICE_ID_API_KEY_Z_TEAM" | docker login -u iamapikey --password-stdin icr.io
 docker pull "$DOCKER_IMAGE"
 if [ "$build_docker" == true ]; then
 
