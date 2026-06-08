@@ -22,7 +22,6 @@
 PACKAGE_NAME=fonttools
 PACKAGE_VERSION=${1:-4.57.0}
 PACKAGE_URL=https://github.com/fonttools/fonttools
-CURRENT_DIR=${PWD}
 
 # Install dependencies and tools
 yum install -y python3 python3-devel python3-pip git cmake gcc gcc-c++ make
