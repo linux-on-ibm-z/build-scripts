@@ -4,7 +4,7 @@ validate_build_script=$VALIDATE_BUILD_SCRIPT
 cloned_package=$CLONED_PACKAGE
 cd package-cache
 
-DOCKER_IMAGE="sankalppersi/trivy-db:latest"
+DOCKER_IMAGE="icr-ose4s390x-dev/trivy-db"
 docker pull "$DOCKER_IMAGE"
 
 if [ "$validate_build_script" == true ]; then
