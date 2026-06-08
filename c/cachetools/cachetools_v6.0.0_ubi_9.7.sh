@@ -25,7 +25,7 @@ PACKAGE_URL=https://github.com/tkem/cachetools.git
 yum install -y git python3 python3-devel
 yum remove -y python-chardet
 PATH=$PATH:/usr/local/bin/
-pip3 install tox
+python3 -m pip install tox
 
 git clone $PACKAGE_URL $PACKAGE_NAME
 cd $PACKAGE_NAME
@@ -38,7 +38,8 @@ if ! python3 setup.py install ; then
     exit 1
 fi
 
-if ! tox -e py3 ; then
+# Run tox without coverage to avoid SQLite3 symbol issues in UBI 9.7
+if ! tox -e py3 -- --no-cov ; then
     echo "------------------$PACKAGE_NAME:Install_success_but_test_fails---------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | GitHub | Fail |  Install_success_but_test_Fails"
