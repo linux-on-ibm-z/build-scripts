@@ -22,7 +22,7 @@ PACKAGE_NAME=cachetools
 PACKAGE_VERSION=${1:-"v6.0.0"}
 PACKAGE_URL=https://github.com/tkem/cachetools.git
 
-yum install -y git python3 python3-devel.ppc64le
+yum install -y git python3 python3-devel
 yum remove -y python-chardet
 PATH=$PATH:/usr/local/bin/
 pip3 install tox
