@@ -3,6 +3,7 @@
   "package_name": "fonttools",
   "github_url": "https://github.com/fonttools/fonttools",
   "version": "4.57.0",
+  "wheel_build" : true,
   "default_branch": "master",
   "package_dir": "f/fonttools/",
   "build_script": "fonttools_ubi_9.7.sh",
