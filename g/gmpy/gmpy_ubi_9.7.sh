@@ -42,7 +42,7 @@ if ! python3 -m pip install . ; then
 fi
 
 # Install test dependencies
-pip3 install psutil pytest hypothesis
+python3 -m pip install psutil pytest hypothesis
 
 # Test
 if ! pytest test/ ; then
