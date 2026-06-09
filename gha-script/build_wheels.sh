@@ -1,18 +1,9 @@
 #!/bin/bash -e
 
-# sudo apt update -y && sudo apt-get install file -y
-# #pip3 install --upgrade requests
-# pip3 install --force-reinstall -v "requests==2.31.0"
-# pip3 install --upgrade docker
-sudo apt update -y
-sudo apt install -y software-properties-common
-sudo add-apt-repository universe -y
-sudo apt update -y
-sudo apt-get install -y file python3-pip python3-venv python3-full
-python3 -m venv venv
-source venv/bin/activate
-pip install --upgrade pip
-pip install requests==2.31.0 docker
+sudo apt update -y && sudo apt-get install file -y
+#pip3 install --upgrade requests
+pip3 install --force-reinstall -v "requests==2.31.0"
+pip3 install --upgrade docker
 
 echo "Running build script execution in background for "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" " 
 echo "*************************************************************************************"
@@ -28,13 +19,14 @@ docker_build_non_root() {
 }
 
 #Below conditions are used to select the base image based on the 2 flags, tested_on and non_root_build. A docker_build_non_root function is called when non root build is true.
-if [[ "$TESTED_ON" == UBI:9*  || "$TESTED_ON" == UBI9* ]];
+if [[ "$TESTED_ON" == UBI:9* || "$TESTED_ON" == UBI9* ]];
 then
-    docker pull registry.access.redhat.com/ubi9/ubi:9.3
-    docker_image="registry.access.redhat.com/ubi9/ubi:9.3"
+    ubi_version=$(echo "$TESTED_ON" | grep -oE '[0-9]+\.[0-9]+')
+    docker pull registry.access.redhat.com/ubi9/ubi:$ubi_version
+    docker_image="registry.access.redhat.com/ubi9/ubi:$ubi_version"
     if [[ "$NON_ROOT_BUILD" == "true" ]];
     then
-        docker_build_non_root "registry.access.redhat.com/ubi9/ubi:9.3"
+        docker_build_non_root "registry.access.redhat.com/ubi9/ubi:$ubi_version"
     fi
 else
     docker pull registry.access.redhat.com/ubi8/ubi:8.7
@@ -42,43 +34,25 @@ else
     if [[ "$NON_ROOT_BUILD" == "true" ]];
     then
         docker_build_non_root "registry.access.redhat.com/ubi8/ubi:8.7"
-    fi    
+    fi  
 fi
 
 WHEEL_SCRIPT=gha-script/create_wheel_wrapper.sh
-#python3 gha-script/build_wheels.py "$WHEEL_SCRIPT" "$PYTHON_VERSION" "$docker_image" "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" > build_log &
 
-# SCRIPT_PID=$!
-# while ps -p $SCRIPT_PID > /dev/null
-# do 
-#   echo "$SCRIPT_PID is running"
-#   sleep 100
-# done
-# wait $SCRIPT_PID
-python3 gha-script/build_wheels.py "$WHEEL_SCRIPT" "$PYTHON_VERSION" "$docker_image" "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" 2>&1 | tee build_log
-my_pid_status=${PIPESTATUS[0]}
+# path to post_process_wheel script (suffix addition, license addition, metadata addition)
+POST_PROCESS_SCRIPT_PATH=gha-script/post_process_wheel.py
 
-build_size=$(stat -c %s build_log)
+python3 gha-script/build_wheels.py "$WHEEL_SCRIPT" "$PYTHON_VERSION" "$docker_image" "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" "$POST_PROCESS_SCRIPT_PATH" 2>&1 | tee wheel_build_log
+wheel_status=${PIPESTATUS[0]}
 
-if [ $my_pid_status != 0 ];
+log_size=$(stat -c %s wheel_build_log)
+if [ $wheel_status != 0 ];
 then
-    echo "Script execution failed for "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" "
+    echo "Wheel build failed for "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" "
     echo "*************************************************************************************"
-    if [ $build_size -lt 1800000 ];
-    then
-       cat build_log
-    else
-       tail -100 build_log
-    fi
     exit 1
 else
     echo "Script execution completed successfully for "$PKG_DIR_PATH$BUILD_SCRIPT" "$VERSION" "
     echo "*************************************************************************************"
-    if [ $build_size -lt 1800000 ];
-    then
-       cat build_log
-    else
-       tail -100 build_log
-    fi    
 fi
 exit 0

@@ -76,7 +76,7 @@ image_name = "ibmcom/" + package_name + "-linux-on-ibm-z:" + version.replace('/'
 version_key =  None
 branch = "master"
 build_scipt = ''
-raw_url_prefix = "https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/" + branch + "/" + "/" .join([package_name[0], package_name])
+raw_url_prefix = "https://raw.githubusercontent.com/linux-on-ibm-x/build-scripts/" + branch + "/" + "/" .join([package_name[0], package_name])
 
 config_json = {}
 
@@ -89,7 +89,12 @@ if(os.path.exists(config_file_name)):
 else:
     # If local file not available, read it from github.
     github_url = raw_url_prefix + "/build_info.json"
-    r = requests.get(github_url)
+    # Get GitHub token from environment variable
+    github_token = os.environ.get('GITHUB_TOKEN')
+    headers = {}
+    if github_token:
+        headers['Authorization'] = f'Bearer {github_token}'
+    r = requests.get(github_url, headers=headers)
     if r.status_code == 200:
         config_json = r.json()
 
