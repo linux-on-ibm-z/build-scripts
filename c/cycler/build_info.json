@@ -1,0 +1,15 @@
+{
+    "maintainer": "Keerthana G R",
+    "package_name": "cycler",
+    "github_url": "https://github.com/matplotlib/cycler",
+    "version": "0.12.1",
+    "default_branch": "master",
+    "package_dir": "c/cycler",
+    "build_script": "cycler_ubi_9_7.sh",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+     "*": {
+         "build_script": "cycler_ubi_9_7.sh"
+     }
+}
