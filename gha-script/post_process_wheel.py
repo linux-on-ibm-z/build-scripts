@@ -47,7 +47,7 @@ logger = logging.getLogger(__name__)
 COS_API_KEY = os.environ["GHA_CURRENCY_SERVICE_ID_API_KEY"]
 COS_SERVICE_INSTANCE_ID = os.environ["GHA_CURRENCY_SERVICE_ID"]
 COS_ENDPOINT = "https://s3.us.cloud-object-storage.appdomain.cloud"
-COS_BUCKET = "ose-power-artifacts-production"
+COS_BUCKET = "ose-s390x-artifacts-production"
 
 # License extraction utilities
 LICENSE_PATTERN = re.compile(r"^(LICENSE|COPYING)(\..*)?$")
