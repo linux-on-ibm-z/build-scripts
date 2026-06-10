@@ -76,7 +76,7 @@ image_name = "ibmcom/" + package_name + "-linux-on-ibm-z:" + version.replace('/'
 version_key =  None
 branch = "master"
 build_scipt = ''
-raw_url_prefix = "https://raw.githubusercontent.com/linux-on-ibm-x/build-scripts/" + branch + "/" + "/" .join([package_name[0], package_name])
+raw_url_prefix = "https://raw.githubusercontent.com/linux-on-ibm-z/build-scripts/" + branch + "/" + "/" .join([package_name[0], package_name])
 
 config_json = {}
 
