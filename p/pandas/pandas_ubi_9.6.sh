@@ -2,7 +2,7 @@
 # ----------------------------------------------------------------------------
 #
 # Package           : pandas
-# Version           : 2.2.3
+# Version           : v2.2.3
 # Source repo       : https://github.com/pandas-dev/pandas
 # Tested on         : UBI:9.6
 # Language          : Python
@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------------
 
 PACKAGE_NAME=pandas
-PACKAGE_VERSION=2.2.3
+PACKAGE_VERSION=${1:-v2.2.3}
 PACKAGE_URL=https://github.com/pandas-dev/pandas
 
 yum install -y \
@@ -35,7 +35,7 @@ yum install -y \
 
 git clone $PACKAGE_URL
 cd $PACKAGE_NAME
-git checkout v$PACKAGE_VERSION
+git checkout $PACKAGE_VERSION
 
 pip3 install --upgrade pip setuptools wheel build
 
