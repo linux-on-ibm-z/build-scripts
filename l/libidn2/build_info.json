@@ -1,0 +1,16 @@
+{
+  "maintainer": "Keerthana GR",
+  "package_name": "libidn2",
+  "github_url": "https://ftp.gnu.org/gnu/libidn",
+  "version": "2.3.2",
+  "wheel_build" : true,
+  "package_dir": "l/libidn2",
+  "default_branch": "master",
+  "build_script": "libidn2_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*":{
+    "build_script":"libidn2_ubi_9.7.sh"
+  }
+}
