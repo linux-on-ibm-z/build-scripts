@@ -3,6 +3,7 @@
     "package_name": "cycler",
     "github_url": "https://github.com/matplotlib/cycler",
     "version": "v0.12.1",
+    "wheel_build": true,
     "default_branch": "master",
     "package_dir": "c/cycler",
     "build_script": "cycler_ubi_9_7.sh",
