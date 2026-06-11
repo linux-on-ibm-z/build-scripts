@@ -39,22 +39,9 @@ on:
       unique_id:
         description: 'Unique ID for the build'
         required: false
-        default: 'None'
-      large-runner-label:
-        description: "New runner to use for failing build"
-        required: false
-        type: choice
-        options:
-          - ''
-          - ubuntu-24.04-s390x
-          - ubuntu-24.04-s390x
+        default: 'None'    
 
-run-name: >
-  ${{ inputs.large-runner-label != '' &&
-      format('Retriggered Currency Build for package {0} and Unique ID {1} on {2}', inputs.package_name, inputs.unique_id, inputs.large-runner-label) ||
-      format('Currency Build {0} && Unique ID {1}', inputs.package_name, inputs.unique_id)
-  }}
-
+run-name: Currency Build ${{ inputs.package_name }} && Unique ID ${{ inputs.unique_id }}
 
 jobs:
   build_info:
@@ -121,7 +108,7 @@ jobs:
   build:
     needs: build_info
     if: ${{ inputs.validate_build_script == 'true' }}
-    runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+    runs-on: ubuntu-24.04-s390x
     steps:
       - uses: actions/checkout@v6
 
@@ -185,7 +172,7 @@ jobs:
   wheel_build_py310:
     needs: build_info
     if: ${{ inputs.wheel_build == 'true' }}
-    runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+    runs-on: ubuntu-24.04-s390x
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
       GHA_CURRENCY_SERVICE_ID: ${{ secrets.GHA_CURRENCY_SERVICE_ID }}
@@ -258,7 +245,7 @@ jobs:
   wheel_build_py311:
     needs: build_info
     if: ${{ inputs.wheel_build == 'true' }}
-    runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+    runs-on: ubuntu-24.04-s390x
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
       GHA_CURRENCY_SERVICE_ID: ${{ secrets.GHA_CURRENCY_SERVICE_ID }}
@@ -349,7 +336,7 @@ jobs:
   wheel_build_py312:
     needs: build_info
     if: ${{ inputs.wheel_build == 'true' }}
-    runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+    runs-on: ubuntu-24.04-s390x
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
       GHA_CURRENCY_SERVICE_ID: ${{ secrets.GHA_CURRENCY_SERVICE_ID }}
@@ -440,7 +427,7 @@ jobs:
   wheel_build_py313:
    needs: build_info
    if: ${{ inputs.wheel_build == 'true' }}
-   runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+   runs-on: ubuntu-24.04-s390x
    continue-on-error: true
    env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -532,7 +519,7 @@ jobs:
   wheel_build_py314:
    needs: build_info
    if: ${{ inputs.wheel_build == 'true' }}
-   runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+   runs-on: ubuntu-24.04-s390x
    continue-on-error: true
    env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -810,7 +797,7 @@ jobs:
   build_docker:
     needs: build_info 
     if: ${{ inputs.build_docker == 'true' }}
-    runs-on: ${{ inputs.large-runner-label != '' && inputs.large-runner-label || 'ubuntu-24.04-s390x' }}
+    runs-on: ubuntu-24.04-s390x
     steps:
       - uses: actions/checkout@v6
 

@@ -5,31 +5,10 @@ on:
     branches:
       - master
       - replica-master
-      
-  workflow_dispatch:
-    inputs:
-      large-runner:
-        description: "New runner to use for failing build"
-        required: true
-        default: "ubuntu-24.04-s390x"
-        type: choice
-        options:
-          - ubuntu-24.04-s390x
-          - ubuntu-24.04-s390x
-      pr_number:
-        description: "PR number of failing build"
-        required: true
-        type: string
-
-run-name: >
-  ${{ github.event_name == 'workflow_dispatch'
-      && format('Retriggered build on {0} for PR {1}', inputs.large-runner, inputs.pr_number)
-      || github.event.pull_request.title }}
-
 jobs:
 
   build_info:
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
 
     steps:
       - name: Checkout code (Pull Request)
@@ -149,7 +128,7 @@ jobs:
 
   build:
     needs: build_info
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
 
     steps:
       - uses: actions/checkout@v6
@@ -184,7 +163,7 @@ jobs:
   wheel_build_py310:
     needs: build_info
     if: ${{ success() }}
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
     continue-on-error: false
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -247,7 +226,7 @@ jobs:
   wheel_build_py311:
     needs: build_info
     if: ${{ success() }}
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
     continue-on-error: false
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -311,7 +290,7 @@ jobs:
   wheel_build_py312:
     needs: build_info
     if: ${{ success() }}
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
     continue-on-error: false
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -373,7 +352,7 @@ jobs:
   wheel_build_py313:
     needs: build_info
     if: ${{ success() }}
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
     continue-on-error: true
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -436,7 +415,7 @@ jobs:
   wheel_build_py314:
     needs: build_info
     if: ${{ success() }}
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
     continue-on-error: true
     env:
       GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
@@ -500,7 +479,7 @@ jobs:
   build_docker:
     needs: build_info
     if: ${{ success() }}
-    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' || inputs.large-runner }}
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-24.04-s390x' }}
 
     steps:
       - name: Checkout code
