@@ -9,8 +9,8 @@
   "build_script": "cryptography_ubi_9.7.sh",
   "docker_build": false,
   "validate_build_script": true,
-  "use_non_root_user": "false",
-  "44.*.*": {
+  "use_non_root_user": false,
+  "*": {
     "build_script": "cryptography_ubi_9.7.sh"
   }
 }

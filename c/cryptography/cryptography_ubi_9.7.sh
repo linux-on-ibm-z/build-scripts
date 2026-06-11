@@ -24,7 +24,7 @@ PACKAGE_VERSION=${1:-44.0.1}
 PACKAGE_URL=https://github.com/pyca/cryptography.git
 
 # Install dependencies and tools.
-yum install -y gcc gcc-c++ git make openssl-devel libffi-devel cargo rust
+yum install -y python3 python3-devel python3-pip gcc gcc-c++ git make openssl-devel libffi-devel cargo rust
 
 #clone repository 
 git clone $PACKAGE_URL
