@@ -10,7 +10,10 @@
   "docker_build": false,
   "validate_build_script": true,
   "use_non_root_user": false,
-  "*": {
+  "2025.01.31": {
     "build_script": "certifi_2025.01.31_ubi_9.7.sh"
+  },
+  "*": {
+    "build_script": "certifi_ubi_9.3.sh"
   }
 }
