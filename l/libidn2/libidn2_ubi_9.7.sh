@@ -55,9 +55,6 @@ mkdir -p local/libidn2
 touch local/__init__.py
 cp -r prefix/* local/libidn2/
 
-# Install setuptools
-pip3 install setuptools wheel
-
 export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:${LD_LIBRARY_PATH}
 
 # Download pyproject.toml file
