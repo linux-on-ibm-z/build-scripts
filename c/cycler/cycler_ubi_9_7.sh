@@ -24,7 +24,7 @@ PACKAGE_VERSION=${1:-v0.12.1}
 PACKAGE_URL=https://github.com/matplotlib/cycler
 
 # Install dependencies
-yum install -y python3 python3-pip python3-devel gcc git
+yum install -y python3 python3-pip python3-devel git
 
 # Clone repository
 git clone $PACKAGE_URL
