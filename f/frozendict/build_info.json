@@ -1,0 +1,16 @@
+{
+  "maintainer": "Sai Sindhuri",
+  "package_name": "frozendict",
+  "github_url": "https://github.com/Marco-Sulla/python-frozendict",
+  "version": "v2.4.2",
+  "wheel_build" : true,
+  "default_branch": "master",
+  "package_dir": "f/frozendict/",
+  "build_script": "frozendict_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2.*.*": {
+    "build_script": "frozendict_ubi_9.7.sh"
+  }
+}
