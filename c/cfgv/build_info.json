@@ -1,0 +1,16 @@
+{
+  "maintainer": "Viddya",
+  "package_name": "cfgv",
+  "github_url": "https://github.com/asottile/cfgv.git",
+  "version": "v3.4.0",
+  "wheel_build" : true,
+  "package_dir": "c/cfgv",
+  "default_branch": "main",
+  "build_script": "cfgv_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "v3.*.*": {
+    "build_script": "cfgv_ubi_9.7.sh"
+  }
+}
