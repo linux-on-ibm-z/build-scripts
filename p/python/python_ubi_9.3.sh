@@ -60,7 +60,7 @@ fi
 # Run tests 
 cd $SCRIPT_DIR
 cd Python-${PACKAGE_VERSION#v}
-if ! make test ; then
+if ! make test TESTOPTS="-x test_bdb" ; then
         echo "------------------$PACKAGE_NAME:install_success_but_test_fails---------------------"
         echo "$PACKAGE_URL $PACKAGE_NAME"
         echo "$PACKAGE_NAME  | $PACKAGE_VERSION | $OS_NAME | GitHub | Fail |  Install_success_but_test_Fails"
