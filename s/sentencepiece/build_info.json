@@ -10,7 +10,7 @@
   "docker_build": false,
   "validate_build_script": true,
   "use_non_root_user": "false",
-  "v0.2.*": {
+  "v0.*.*": {
     "build_script": "sentencepiece_ubi_9.6.sh"
   }
 }
