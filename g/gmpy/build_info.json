@@ -1,0 +1,16 @@
+{
+    "maintainer": "Sai Sindhuri",
+    "package_name": "gmpy",
+    "github_url": "https://github.com/aleaxit/gmpy",
+    "version": "v2.2.1",
+    "wheel_build": true,
+    "default_branch": "master",
+    "build_script": "gmpy_ubi_9.7.sh",
+    "package_dir": "g/gmpy",
+    "docker_build": false,
+    "validate_build_script": true,
+    "use_non_root_user": false,
+    "v2.*.*": {
+        "build_script": "gmpy_ubi_9.7.sh"
+    }
+}
