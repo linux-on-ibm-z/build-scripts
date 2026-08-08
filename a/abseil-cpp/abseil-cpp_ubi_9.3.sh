@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # -----------------------------------------------------------------------------
 #
-# Package       : abseil-cpp
+# Package       : abseil-cpp test
 # Version       : 20240116.2
 # Source repo   : https://github.com/abseil/abseil-cpp
 # Tested on     : UBI:9.3
