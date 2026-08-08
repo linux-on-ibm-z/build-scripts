@@ -247,7 +247,7 @@ while IFS= read -r entry; do
   t_on=$(echo "$entry" | jq -r '.tested_on')
   # Normalise: uppercase, collapse separators around UBI, then extract the
   # integer immediately following "UBI".  Uses only sed + tr (POSIX)  -  no
-  # grep -P needed, so it works on ppc64le runners where grep -P is absent.
+  # grep -P needed, so it works on s390x runners where grep -P is absent.
   t_upper=$(echo "$t_on" | tr '[:lower:]' '[:upper:]')
   # Collapse "UBI : 9.3" / "UBI:9.3" / "UBI 9.3" / "UBI9.3" -> "UBI9.3"
   t_norm=$(echo "$t_upper" | sed 's/UBI[[:space:]]*[: ][[:space:]]*/UBI/g')

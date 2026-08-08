@@ -412,7 +412,7 @@ else
 fi
 
 # CVE scan runs after post-processing so the report is named after the final
-# wheel filename (with +ppc64leN suffix) from the start  -  no rename needed.
+# wheel filename (with +s390xN suffix) from the start  -  no rename needed.
 wheel_post_processed=(*.whl)
 cve_report_new="${wheel_post_processed[0]%.whl}_cve_report.json"
 # Call run_cve_scan  -  comment out this block locally to skip CVE scanning.
