@@ -1,5 +1,5 @@
 {
-  "maintainer": "Purva",
+  "maintainer": "Purva Kale",
   "package_name": "sentencepiece",
   "github_url": "https://github.com/google/sentencepiece.git",
   "version": "v0.2.1",
@@ -9,7 +9,7 @@
   "build_script": "sentencepiece_ubi_9.6.sh",
   "docker_build": false,
   "validate_build_script": true,
-  "use_non_root_user": "false",
+  "use_non_root_user": false,
   "v0.2.*": {
     "build_script": "sentencepiece_ubi_9.6.sh"
   }
