@@ -37,7 +37,7 @@ resolve_docker_image() {
   upper=$(echo "$raw" | tr '[:lower:]' '[:upper:]')
 
   # Collapse "UBI : 9.3" / "UBI:9.3" / "UBI 9.3" / "UBI9.3" -> "UBI9.3"
-  # Uses sed only  -  no grep -P (absent on ppc64le runners).
+  # Uses sed only  -  no grep -P (absent on s390x runners).
   local norm
   norm=$(echo "$upper" | sed 's/UBI[[:space:]]*[: ][[:space:]]*/UBI/g')
 
