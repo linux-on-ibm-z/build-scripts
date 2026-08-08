@@ -1,0 +1,16 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "pandas",
+  "github_url": "https://github.com/pandas-dev/pandas",
+  "version": "v2.2.3",
+  "wheel_build": true,
+  "package_dir": "p/pandas",
+  "default_branch": "main",
+  "build_script": "pandas_ubi_9.6.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "v2.2.*": {
+    "build_script": "pandas_ubi_9.6.sh"
+  }
+}
