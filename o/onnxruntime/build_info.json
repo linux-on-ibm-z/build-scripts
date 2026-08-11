@@ -1,0 +1,16 @@
+{
+  "maintainer": "Viddya",
+  "package_name": "onnxruntime",
+  "github_url": "https://github.com/microsoft/onnxruntime.git",
+  "version": "v1.22.1",
+  "wheel_build" : true,
+  "package_dir": "o/onnxruntime",
+  "default_branch": "main",
+  "build_script": "onnxruntime_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "v1.*.*": {
+    "build_script": "onnxruntime_ubi_9.7.sh"
+  }
+}
