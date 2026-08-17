@@ -134,7 +134,6 @@ jobs:
   # ---------------------------------------------------------------------------
   install_scan_tools:
     needs: build_info
-    if: ${{ inputs.wheel_build == 'true' }}
     runs-on: ubuntu-24.04-s390x
     steps:
       - name: Checkout code
@@ -1365,12 +1364,12 @@ jobs:
       - name: Extract package cache
         run: tar -xzf package-cache.tar.gz
       - name: Download scan-tools-cache
-        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' }}
         uses: actions/download-artifact@v4
         with:
           name: scan-tools-cache
       - name: Extract scan tools
-        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' }}
         run: tar -xzf scan-tools-cache.tar.gz
       - name: Prepare scanner environment
         run: |
@@ -1430,12 +1429,12 @@ jobs:
       - name: Extract package cache
         run: tar -xzf package-cache.tar.gz
       - name: Download scan-tools-cache
-        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' }}
         uses: actions/download-artifact@v4
         with:
           name: scan-tools-cache
       - name: Extract scan tools
-        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' }}
         run: tar -xzf scan-tools-cache.tar.gz
       - name: Prepare scanner environment
         run: |
@@ -1495,12 +1494,12 @@ jobs:
       - name: Extract package cache
         run: tar -xzf package-cache.tar.gz
       - name: Download scan-tools-cache
-        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' }}
         uses: actions/download-artifact@v4
         with:
           name: scan-tools-cache
       - name: Extract scan tools
-        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' }}
         run: tar -xzf scan-tools-cache.tar.gz
       - name: Prepare scanner environment
         run: |
