@@ -4,6 +4,7 @@
   "github_url": "https://github.com/wildfly/wildfly.git",
   "version": "32.0.0.Final",
   "default_branch": "main",
+  "wheel_build" : true,
   "package_dir": "w/wildfly/",
   "docker_cmd": "docker build -t ${package_name}:$PACKAGE_VERSION ${dir}",
   "build_script": "wildfly_ubi_9.3.sh",
