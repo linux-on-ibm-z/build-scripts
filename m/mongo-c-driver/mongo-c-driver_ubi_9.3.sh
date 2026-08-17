@@ -40,6 +40,7 @@ git clone $PACKAGE_URL
 cd  $PACKAGE_NAME
 git checkout $PACKAGE_VERSION
 
+# Create build dir 
 mkdir cmake-build
 cd cmake-build
 
