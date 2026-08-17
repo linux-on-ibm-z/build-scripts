@@ -1365,12 +1365,12 @@ jobs:
       - name: Extract package cache
         run: tar -xzf package-cache.tar.gz
       - name: Download scan-tools-cache
-        if: ${{ inputs.enable_grype == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
         uses: actions/download-artifact@v4
         with:
           name: scan-tools-cache
       - name: Extract scan tools
-        if: ${{ inputs.enable_grype == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
         run: tar -xzf scan-tools-cache.tar.gz
       - name: Prepare scanner environment
         run: |
@@ -1430,12 +1430,12 @@ jobs:
       - name: Extract package cache
         run: tar -xzf package-cache.tar.gz
       - name: Download scan-tools-cache
-        if: ${{ inputs.enable_grype == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
         uses: actions/download-artifact@v4
         with:
           name: scan-tools-cache
       - name: Extract scan tools
-        if: ${{ inputs.enable_grype == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
         run: tar -xzf scan-tools-cache.tar.gz
       - name: Prepare scanner environment
         run: |
@@ -1495,12 +1495,12 @@ jobs:
       - name: Extract package cache
         run: tar -xzf package-cache.tar.gz
       - name: Download scan-tools-cache
-        if: ${{ inputs.enable_grype == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
         uses: actions/download-artifact@v4
         with:
           name: scan-tools-cache
       - name: Extract scan tools
-        if: ${{ inputs.enable_grype == 'true' }}
+        if: ${{ inputs.enable_grype == 'true' && inputs.wheel_build == 'true' }}
         run: tar -xzf scan-tools-cache.tar.gz
       - name: Prepare scanner environment
         run: |
