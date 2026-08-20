@@ -281,9 +281,28 @@ fi
 
 echo "Auditwheel exclusion arguments: ${EXCLUDE_ARGS[*]}"
 
+# map UBI major version to auditwheel platform tag
+case "$UBI_MAJOR" in
+    8)
+        AUDITWHEEL_PLAT="manylinux_2_28_s390x"
+        ;;
+    9)
+        AUDITWHEEL_PLAT="manylinux_2_34_s390x"
+        ;;
+    10)
+        AUDITWHEEL_PLAT="manylinux_2_39_s390x"
+        ;;
+    *)
+        echo
+        echo "===> ERROR: Unsupported UBI major version for auditwheel platform mapping: $UBI_MAJOR"
+        echo
+        exit 1
+        ;;
+esac
+
 # run auditwheel
 set +e
-audit_output=$(auditwheel repair "$wheel_file" --wheel-dir "$WHEELHOUSE" "${EXCLUDE_ARGS[@]}" 2>&1)
+audit_output=$(auditwheel repair "$wheel_file" --plat "$AUDITWHEEL_PLAT" --wheel-dir "$WHEELHOUSE" "${EXCLUDE_ARGS[@]}" 2>&1)
 audit_status=$?
 set -e
 
@@ -391,31 +410,25 @@ echo
 echo "=== Post Processing wheel ${wheel_final} with SHA: ${SHA256_VALUE} ==="
 echo
 
-# In PR builds ENABLE_CVE_SCAN=false and COS credentials are absent.
-# Skip post-processing entirely  -  PRs only verify the wheel builds, not publish them.
-if [ "${ENABLE_CVE_SCAN:-true}" = "false" ]; then
+# Post-processing: license injection, IBM classifier, version suffix, RECORD update.
+# Always runs. When COS credentials are absent (PR builds), post_process_wheel.py
+# skips only suffix resolution and uses fallback suffix "s390x0" instead.
+if python ${POST_PROCESS_SCRIPT_PATH} ${wheel_final} ${SHA256_VALUE}; then
     echo 
-    echo "===> Skipping post-processing in PR build (ENABLE_CVE_SCAN=false)."
+    echo "===> SUCCESS: Wheel post-processed successfully."
     echo
 else
-    # post processing of wheels (Suffix addition, license addition, metadata addition)
-    if python ${POST_PROCESS_SCRIPT_PATH} ${wheel_final} ${SHA256_VALUE}; then
-        echo
-        echo "===> SUCCESS: Wheels post process successfully."
-        echo
-    else
-        echo
-        echo "===> ERROR: Failed to post process wheels."
-        echo
-        exit 1
-    fi
+    echo
+    echo "===> ERROR: Failed to post-process wheel."
+    echo
+    exit 1
 fi
 
 # CVE scan runs after post-processing so the report is named after the final
 # wheel filename (with +s390xN suffix) from the start  -  no rename needed.
+# Controlled by ENABLE_CVE_SCAN (default: true). Set to false in PR builds.
 wheel_post_processed=(*.whl)
-cve_report_new="${wheel_post_processed[0]%.whl}_cve_report.json"
-# Call run_cve_scan  -  comment out this block locally to skip CVE scanning.
+
 if [ "${ENABLE_CVE_SCAN:-true}" = "false" ]; then
     echo
     echo "===> Skipping CVE scan (ENABLE_CVE_SCAN=false)."
