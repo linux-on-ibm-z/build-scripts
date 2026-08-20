@@ -284,13 +284,13 @@ echo "Auditwheel exclusion arguments: ${EXCLUDE_ARGS[*]}"
 # map UBI major version to auditwheel platform tag
 case "$UBI_MAJOR" in
     8)
-        AUDITWHEEL_PLAT="manylinux_2_28_ppc64le"
+        AUDITWHEEL_PLAT="manylinux_2_28_s390x"
         ;;
     9)
-        AUDITWHEEL_PLAT="manylinux_2_34_ppc64le"
+        AUDITWHEEL_PLAT="manylinux_2_34_s390x"
         ;;
     10)
-        AUDITWHEEL_PLAT="manylinux_2_39_ppc64le"
+        AUDITWHEEL_PLAT="manylinux_2_39_s390x"
         ;;
     *)
         echo
@@ -412,7 +412,7 @@ echo
 
 # Post-processing: license injection, IBM classifier, version suffix, RECORD update.
 # Always runs. When COS credentials are absent (PR builds), post_process_wheel.py
-# skips only suffix resolution and uses fallback suffix "ppc64le0" instead.
+# skips only suffix resolution and uses fallback suffix "s390x0" instead.
 if python ${POST_PROCESS_SCRIPT_PATH} ${wheel_final} ${SHA256_VALUE}; then
     echo 
     echo "===> SUCCESS: Wheel post-processed successfully."
