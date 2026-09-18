@@ -4,7 +4,7 @@
 # Package        : MariaDB Connector ODBC
 # Version        : 3.2.6
 # Source repo    : https://github.com/mariadb-corporation/mariadb-connector-odbc
-# Tested on      : UBI: 9.3
+# Tested on      : UBI:9.3
 # Language       : c
 # Ci-Check   : True
 # Script License : Apache License, Version 2 or later
@@ -26,10 +26,10 @@ SCRIPT_DIR=$(pwd)
 PACKAGE_URL=https://github.com/MariaDB/mariadb-connector-odbc.git
 
 # Install dependencies
-yum install -y mariadb git cmake gcc gcc-c++ libarchive openssl-devel openssl tar wget libcurl-devel krb5-devel make glibc-langpack-en autoconf automake libtool 
+yum install -y mariadb git cmake gcc gcc-c++ libarchive openssl-devel openssl tar wget libcurl-devel krb5-devel make glibc-langpack-en autoconf automake libtool
 yum install -y yum-utils
 yum-config-manager --add-repo http://rpmfind.net/linux/centos-stream/9-stream/AppStream/s390x/os/
-yum-config-manager --add-repo http://rpmfind.net/linux/centos-stream/9-stream/BaseOS/s390x/os/ 	
+yum-config-manager --add-repo http://rpmfind.net/linux/centos-stream/9-stream/BaseOS/s390x/os/
 yum config-manager --set-enabled ubi-9-codeready-builder
 yum config-manager --set-enabled ubi-9-codeready-builder-rpms
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
@@ -68,7 +68,7 @@ make install
 cp /usr/local/lib/mariadb/libmaodbc.so /usr/local/lib
 echo "MariaDB Connector ODBC installed successfully"
 
-#Run Tests 
+#Run Tests
 mysql_install_db --user=mysql
 sleep 20s
 env PATH=$PATH mysqld_safe --user=mysql &
@@ -88,7 +88,7 @@ if ! ctest; then
     echo "------------------$PACKAGE_NAME:Test_Fails---------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  | $PACKAGE_VERSION | $OS_NAME | GitHub | Fail | Test_Fails"
-	exit 1 
+	exit 1
 else
     mysqladmin -u root --password="" shutdown
     echo "------------------$PACKAGE_NAME:Test_Success-------------------------"
