@@ -412,16 +412,16 @@ def resolve_suffix(client, package, version, wheel_name, wheel_sha256):
     # Resolve the correct suffix for the wheel by checking IBM COS.
     #
     # Logic:
-    # Step 1 — Check the no-suffix wheel in COS (e.g. numpy-1.26.4-...-linux_ppc64le.whl):
+    # Step 1 — Check the no-suffix wheel in COS (e.g. numpy-1.26.4-...-linux_s390x.whl):
     #   - NOT FOUND              → return None        (first upload, publish clean)
     #   - FOUND, SHA matches     → return None        (same wheel, publish clean)
     #   - FOUND, SHA missing     → return None        (treat as match, publish clean)
     #   - FOUND, SHA differs     → proceed to Step 2
     #
-    # Step 2+ — Check suffixed slots ppc64le1, ppc64le2, ... in order:
-    #   - NOT FOUND              → return "ppc64leN"  (free slot, use it)
-    #   - FOUND, SHA matches     → return "ppc64leN"  (same wheel, reuse suffix)
-    #   - FOUND, SHA missing     → return "ppc64leN"  (treat as match, reuse suffix)
+    # Step 2+ — Check suffixed slots s390x1, s390x2, ... in order:
+    #   - NOT FOUND              → return "s390xN"  (free slot, use it)
+    #   - FOUND, SHA matches     → return "s390xN"  (same wheel, reuse suffix)
+    #   - FOUND, SHA missing     → return "s390xN"  (treat as match, reuse suffix)
     #   - FOUND, SHA differs     → increment N, repeat
     #
     # When client is None (PR build — no COS credentials), skip COS lookup
