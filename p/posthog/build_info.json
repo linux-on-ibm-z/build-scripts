@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "posthog",
+  "language": "python",
+  "github_url": "https://github.com/posthog/posthog-python",
+  "version": "2.4.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "p/posthog",
+  "default_branch": "main",
+  "build_script": "posthog.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "2.*.*": {
+    "build_script": "posthog.sh"
+  }
+}

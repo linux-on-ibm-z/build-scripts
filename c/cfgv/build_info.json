@@ -1,0 +1,18 @@
+{
+  "maintainer": "viddya.k@ibm.com",
+  "package_name": "cfgv",
+  "language": "python",
+  "github_url": "https://github.com/asottile/cfgv",
+  "version": "v3.4.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "default_branch": "main",
+  "build_script": "cfgv.sh",
+  "package_dir": "c/cfgv",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v3.*.*": {
+    "build_script": "cfgv.sh"
+  }
+}

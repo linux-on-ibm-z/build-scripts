@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "google-api-core",
+  "github_url": "https://github.com/googleapis/python-api-core",
+  "version": "v2.10.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "g/google-api-core",
+  "default_branch": "main",
+  "build_script": "google-api-core.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "google-api-core.sh"
+  }
+}

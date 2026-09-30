@@ -1,0 +1,19 @@
+{
+  "maintainer": "viddya.k@ibm.com",
+  "package_name": "chardet",
+  "language": "python",
+  "github_url": "https://github.com/chardet/chardet",
+  "version": "5.2.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "c/chardet",
+  "default_branch": "main",
+  "build_script": "chardet.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "resource_class": "light",
+  "*": {
+    "build_script": "chardet.sh"
+  }
+}

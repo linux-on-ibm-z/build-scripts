@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "distro",
+  "github_url": "https://github.com/nir0s/distro",
+  "version": "v1.8.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "d/distro",
+  "default_branch": "master",
+  "build_script": "distro.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "distro.sh"
+  }
+}

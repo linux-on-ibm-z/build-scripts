@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "ipywidgets",
+  "github_url": "https://github.com/jupyter-widgets/ipywidgets",
+  "version": "8.1.5",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "i/ipywidgets",
+  "default_branch": "main",
+  "build_script": "ipywidgets.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "ipywidgets.sh"
+  }
+}

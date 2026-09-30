@@ -1,0 +1,17 @@
+{
+  "maintainer": "Srighakollapu-Srivatsa1",
+  "package_name": "watchdog",
+  "github_url": "https://github.com/gorakhargosh/watchdog",
+  "version": "v6.0.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "w/watchdog",
+  "default_branch": "master",
+  "build_script": "watchdog.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "watchdog.sh"
+  }
+}
