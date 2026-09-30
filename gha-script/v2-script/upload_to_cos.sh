@@ -23,7 +23,7 @@ FILE="${1:?file argument required}"
 : "${PACKAGE_VERSION:?PACKAGE_VERSION is required}"
 : "${GHA_RUN_ID:?GHA_RUN_ID is required}"
 
-BUCKET="powercore-wheels-dev"
+BUCKET="powercore-gha-builds"
 BUCKET_URL="https://s3.us-east.cloud-object-storage.appdomain.cloud/${BUCKET}"
 OBJECT_KEY="${PACKAGE_NAME}/${PACKAGE_VERSION}/${GHA_RUN_ID}/$(basename "${FILE}")"
 
