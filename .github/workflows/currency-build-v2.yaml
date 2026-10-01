@@ -246,6 +246,13 @@ jobs:
             "${{ steps.drop_csv.outputs.csv_name }}" \
             "$PACKAGE_NAME"
 
+      - name: Package build logs
+        if: always()
+        run: |
+          chmod +x ./gha-script/v2-script/print-build-log.sh
+          bash ./gha-script/v2-script/print-build-log.sh \
+            "$POWERCORE_RUNTIME"
+
       - name: Verify V2 wheel was produced
         run: |
           chmod +x ./gha-script/v2-script/verify-wheel.sh
@@ -412,6 +419,13 @@ jobs:
             "${{ steps.drop_csv.outputs.powercore_runtime }}" \
             "${{ steps.drop_csv.outputs.csv_name }}" \
             "$PACKAGE_NAME"
+        
+      - name: Package build logs
+        if: always()
+        run: |
+          chmod +x ./gha-script/v2-script/print-build-log.sh
+          bash ./gha-script/v2-script/print-build-log.sh \
+            "$POWERCORE_RUNTIME"
 
       - name: Verify V2 wheel was produced
         run: |
@@ -581,6 +595,13 @@ jobs:
             "${{ steps.drop_csv.outputs.csv_name }}" \
             "$PACKAGE_NAME"
 
+      - name: Package build logs
+        if: always()
+        run: |
+          chmod +x ./gha-script/v2-script/print-build-log.sh
+          bash ./gha-script/v2-script/print-build-log.sh \
+            "$POWERCORE_RUNTIME"
+
       - name: Verify V2 wheel was produced
         run: |
           chmod +x ./gha-script/v2-script/verify-wheel.sh
@@ -748,6 +769,13 @@ jobs:
             "${{ steps.drop_csv.outputs.csv_name }}" \
             "$PACKAGE_NAME"
 
+      - name: Package build logs
+        if: always()
+        run: |
+          chmod +x ./gha-script/v2-script/print-build-log.sh
+          bash ./gha-script/v2-script/print-build-log.sh \
+            "$POWERCORE_RUNTIME"
+
       - name: Verify V2 wheel was produced
         run: | 
           chmod +x ./gha-script/v2-script/verify-wheel.sh
@@ -914,6 +942,13 @@ jobs:
             "${{ steps.drop_csv.outputs.powercore_runtime }}" \
             "${{ steps.drop_csv.outputs.csv_name }}" \
             "$PACKAGE_NAME"
+
+      - name: Package build logs
+        if: always()
+        run: |
+          chmod +x ./gha-script/v2-script/print-build-log.sh
+          bash ./gha-script/v2-script/print-build-log.sh \
+            "$POWERCORE_RUNTIME"
 
       - name: Verify V2 wheel was produced
         run: |
@@ -1119,6 +1154,7 @@ jobs:
       - name: Download and extract license results from COS
         env:
           GHA_CURRENCY_SERVICE_ID_API_KEY: ${{ secrets.GHA_CURRENCY_SERVICE_ID_API_KEY }}
+          GHA_RUN_ID: ${{ github.run_id }}
           PACKAGE_NAME: ${{ fromJson(inputs.package_json).package_name }}
           PACKAGE_VERSION: ${{ fromJson(inputs.package_json).package_version }}
         run: |
