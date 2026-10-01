@@ -29,6 +29,7 @@ API_KEY="${IBMCLOUD_API_KEY:-${IAM_API_KEY:-${GHA_CURRENCY_SERVICE_ID_API_KEY:-}
 POWERCORE_VERSION_INPUT="${POWERCORE_VERSION:-${POWERCORE_WHEEL_VERSION:-}}"
 GITHUB_TOKEN_INPUT="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
 ICR_IMAGE_TAG_INPUT="${ICR_IMAGE_TAG:-}"
+COUCHDB_API_KEY_INPUT="${COUCHDB_IAM_API_KEY:-}"
 
 # ── Argument parsing ──────────────────────────────────────────────────────────
 while [[ $# -gt 0 ]]; do
@@ -37,8 +38,9 @@ while [[ $# -gt 0 ]]; do
     --version)    POWERCORE_VERSION_INPUT="$2";  shift 2 ;;
     --gh-token)   GITHUB_TOKEN_INPUT="$2";       shift 2 ;;
     --image-tag)  ICR_IMAGE_TAG_INPUT="$2";      shift 2 ;;
+    --couchdb-api-key) COUCHDB_API_KEY_INPUT="$2";    shift 2 ;;
     -h|--help)
-      echo "Usage: $0 --api-key <KEY> --version <VERSION> --gh-token <TOKEN> [--image-tag <TAG>]"
+      echo "Usage: $0 --api-key <KEY> --version <VERSION> --gh-token <TOKEN> [--image-tag <TAG>] [--couchdb-api-key <KEY>]"
       exit 0
       ;;
     *)
@@ -125,7 +127,7 @@ if not kv_data or not isinstance(kv_data, dict):
 
 api_key_input       = sys.argv[3] if len(sys.argv) > 3 else ''
 image_tag_input     = sys.argv[4] if len(sys.argv) > 4 else ''
-couchdb_iam_api_key = api_key_input
+couchdb_api_key_input = sys.argv[5] if len(sys.argv) > 5 else ''
 
 # Inject / override version and token
 kv_data['POWERCORE_WHEEL_VERSION'] = version_input
@@ -149,7 +151,7 @@ kv_data['COUCHDB_IAM_API_KEY'] = couchdb_iam_api_key
 with open('powercore-config.env', 'w') as f:
     for k, v in kv_data.items():
         f.write(f'{k}={v}\n')
-" "${POWERCORE_VERSION_INPUT}" "${GITHUB_TOKEN_INPUT}" "${API_KEY}" "${ICR_IMAGE_TAG_INPUT}" <<< "${secret_response}"
+" "${POWERCORE_VERSION_INPUT}" "${GITHUB_TOKEN_INPUT}" "${API_KEY}" "${ICR_IMAGE_TAG_INPUT}" "${COUCHDB_API_KEY_INPUT}" <<< "${secret_response}"
 
 if [[ ! -f powercore-config.env ]]; then
   echo "ERROR: powercore-config.env was not generated"
