@@ -117,7 +117,7 @@ def detect_template_from_script(script_path: Path) -> Optional[str]:
     Parse build script to find which template it sources.
 
     Looks for patterns like:
-        source "${SCRIPT_DIR}/../../templates/python.sh"
+        source "${SCRIPT_DIR}/../../v2-templates/python.sh"
         source "$SCRIPT_DIR/../../templates/base.sh"
     """
     if not script_path.exists():

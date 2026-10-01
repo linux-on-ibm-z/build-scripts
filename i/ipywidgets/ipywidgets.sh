@@ -60,4 +60,4 @@ pre_test() {
 # =============================================================================
 # Source the Python template to execute the build and test workflow
 # =============================================================================
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"

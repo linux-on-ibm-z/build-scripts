@@ -40,4 +40,4 @@ SLES_DEP_PKGS="git python3 python3-devel python3-pip"
 # =============================================================================
 # Source the Python template to execute the build workflow
 # =============================================================================
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"

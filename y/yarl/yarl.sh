@@ -98,4 +98,4 @@ custom_test_command() {
 # =============================================================================
 # Source the Python template to execute the build workflow
 # =============================================================================
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
