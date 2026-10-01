@@ -128,7 +128,7 @@ if not kv_data or not isinstance(kv_data, dict):
 
 api_key_input       = sys.argv[3] if len(sys.argv) > 3 else ''
 image_tag_input     = sys.argv[4] if len(sys.argv) > 4 else ''
-couchdb_api_key_input = sys.argv[5] if len(sys.argv) > 5 else ''
+couchdb_iam_api_key = sys.argv[5] if len(sys.argv) > 5 else ''
 
 # Inject / override version and token
 kv_data['POWERCORE_WHEEL_VERSION'] = version_input
