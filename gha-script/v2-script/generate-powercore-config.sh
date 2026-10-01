@@ -7,7 +7,8 @@
 #       --api-key   <IAM_API_KEY> \
 #       --version   <POWERCORE_WHEEL_VERSION> \
 #       --gh-token  <GITHUB_TOKEN> \
-#       --image-tag  <ICR_IMAGE_TAG>
+#       --image-tag  <ICR_IMAGE_TAG> \
+#       --couchdb-api-key <COUCHDB_IAM_API_KEY>
 #
 # Environment variable equivalents:
 #   IAM_API_KEY / IBMCLOUD_API_KEY / GHA_CURRENCY_SERVICE_ID_API_KEY
