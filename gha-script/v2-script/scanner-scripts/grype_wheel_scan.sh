@@ -6,7 +6,6 @@ if [ -z "$GRYPE_BIN" ]; then
   echo "Error: GRYPE_BIN environment variable not set"
   exit 1
 fi
-sudo apt update -y && sudo apt install -y jq
 echo "------------- Using cached grype ---------------"
 $GRYPE_BIN version
 
