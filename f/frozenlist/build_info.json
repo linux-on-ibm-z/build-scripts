@@ -1,0 +1,20 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "frozenlist",
+  "language": "python",
+  "github_url": "https://github.com/aio-libs/frozenlist",
+  "version": "v1.6.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "package_dir": "f/frozenlist",
+  "default_branch": "master",
+  "build_script": "frozenlist.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "provides_artifact": "frozenlist",
+  "*": {
+    "build_script": "frozenlist.sh"
+  }
+}

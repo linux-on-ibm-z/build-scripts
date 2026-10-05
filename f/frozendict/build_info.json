@@ -1,0 +1,20 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "frozendict",
+  "language": "python",
+  "github_url": "https://github.com/Marco-Sulla/python-frozendict",
+  "version": "v2.4.2",
+  "v2-enabled": true,
+  "wheel_build": true,
+  "resource_class": "light",
+  "package_dir": "f/frozendict",
+  "default_branch": "master",
+  "build_script": "frozendict.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "provides_artifact": "frozendict",
+  "*": {
+    "build_script": "frozendict.sh"
+  }
+}

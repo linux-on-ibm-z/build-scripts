@@ -1,0 +1,18 @@
+{
+  "maintainer": "viddya.k@ibm.com",
+  "package_name": "onnxruntime",
+  "language": "python",
+  "github_url": "https://github.com/microsoft/onnxruntime",
+  "version": "v1.22.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "default_branch": "main",
+  "build_script": "onnxruntime.sh",
+  "package_dir": "o/onnxruntime",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v1.*.*": {
+    "build_script": "onnxruntime.sh"
+  }
+}

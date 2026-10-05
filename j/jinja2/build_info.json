@@ -1,0 +1,18 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "jinja2",
+  "github_url": "https://github.com/pallets/jinja",
+  "version": "3.1.6",
+  "git_tag": "3.1.6",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "j/jinja2",
+  "default_branch": "main",
+  "build_script": "jinja2.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "jinja2.sh"
+  }
+}
