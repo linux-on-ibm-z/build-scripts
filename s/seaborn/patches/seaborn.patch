@@ -1,0 +1,74 @@
+diff --git a/seaborn/matrix.py b/seaborn/matrix.py
+index 6b99c118..cfd1968f 100644
+--- a/seaborn/matrix.py
++++ b/seaborn/matrix.py
+@@ -9,6 +9,7 @@ import numpy as np
+ import pandas as pd
+ try:
+     from scipy.cluster import hierarchy
++    from scipy.spatial import distance
+     _no_scipy = False
+ except ImportError:
+     _no_scipy = True
+@@ -527,8 +528,9 @@ class _DendrogramPlotter:
+         self.independent_coord = self.dendrogram['icoord']
+ 
+     def _calculate_linkage_scipy(self):
+-        linkage = hierarchy.linkage(self.array, method=self.method,
+-                                    metric=self.metric)
++        # s390x FMA precision causes 1-ULP linkage divergence unless distance matrix is computed via pdist.
++        dists = distance.pdist(self.array, metric=self.metric)
++        linkage = hierarchy.linkage(dists, method=self.method)
+         return linkage
+ 
+     def _calculate_linkage_fastcluster(self):
+diff --git a/tests/_core/test_plot.py b/tests/_core/test_plot.py
+index 5554ea65..50851646 100644
+--- a/tests/_core/test_plot.py
++++ b/tests/_core/test_plot.py
+@@ -1782,6 +1782,17 @@ class TestPairInterface:
+ 
+ class TestLabelVisibility:
+ 
++    def has_xaxis_labels(self, ax):
++        if _version_predates(mpl, "3.7"):
++            # mpl3.7 added a getter for tick params, but both yaxis and xaxis return
++            # the same entry of "labelleft" instead of "labelbottom" for xaxis
++            return len(ax.get_xticklabels()) > 0
++        elif _version_predates(mpl, "3.10"):
++            # Then I guess they made it labelbottom in 3.10?
++            return ax.xaxis.get_tick_params()["labelleft"]
++        else:
++            return ax.xaxis.get_tick_params()["labelbottom"]
++
+     def test_single_subplot(self, long_df):
+ 
+         x, y = "a", "z"
+@@ -1852,12 +1863,7 @@ class TestLabelVisibility:
+         for s in subplots[1:]:
+             ax = s["ax"]
+             assert ax.xaxis.get_label().get_visible()
+-            # mpl3.7 added a getter for tick params, but both yaxis and xaxis return
+-            # the same entry of "labelleft" instead of  "labelbottom" for xaxis
+-            if not _version_predates(mpl, "3.7"):
+-                assert ax.xaxis.get_tick_params()["labelleft"]
+-            else:
+-                assert len(ax.get_xticklabels()) > 0
++            assert self.has_xaxis_labels(ax)
+             assert all(t.get_visible() for t in ax.get_xticklabels())
+ 
+         for s in subplots[1:-1]:
+@@ -1882,12 +1888,7 @@ class TestLabelVisibility:
+         for s in subplots[-2:]:
+             ax = s["ax"]
+             assert ax.xaxis.get_label().get_visible()
+-            # mpl3.7 added a getter for tick params, but both yaxis and xaxis return
+-            # the same entry of "labelleft" instead of  "labelbottom" for xaxis
+-            if not _version_predates(mpl, "3.7"):
+-                assert ax.xaxis.get_tick_params()["labelleft"]
+-            else:
+-                assert len(ax.get_xticklabels()) > 0
++            assert self.has_xaxis_labels(ax)
+             assert all(t.get_visible() for t in ax.get_xticklabels())
+ 
+         for s in subplots[:-2]:

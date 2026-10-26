@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "osqp",
+  "language": "python",
+  "github_url": "https://github.com/osqp/osqp-python",
+  "version": "v0.6.3",
+  "wheel_build": true,
+  "package_dir": "o/osqp",
+  "default_branch": "master",
+  "build_script": "osqp.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "osqp.sh"
+  }
+}

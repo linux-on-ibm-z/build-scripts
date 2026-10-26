@@ -1,0 +1,15 @@
+diff --git a/src/gmpy2_mpz_misc.c b/src/gmpy2_mpz_misc.c
+index 4beade5..821c2ab 100644
+--- a/src/gmpy2_mpz_misc.c
++++ b/src/gmpy2_mpz_misc.c
+@@ -1964,6 +1964,10 @@ GMPy_MPZ_Method_To_Bytes(PyObject *self, PyObject *const *args,
+             OVERFLOW_ERROR("can't convert negative mpz to unsigned");
+             return NULL;
+         }
++        if (length == 0) {
++            OVERFLOW_ERROR("mpz too big to convert");
++            return NULL;
++        }
+         mpz_init(tmp);
+         mpz_ui_pow_ui(tmp, 256, length);
+         mpz_add(tmp, tmp, *px);

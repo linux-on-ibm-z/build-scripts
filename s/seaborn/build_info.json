@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "seaborn",
+  "language": "python",
+  "github_url": "https://github.com/mwaskom/seaborn.git",
+  "version": "v0.13.2",
+  "wheel_build": true,
+  "package_dir": "s/seaborn",
+  "default_branch": "master",
+  "build_script": "seaborn.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "seaborn.sh"
+  }
+}

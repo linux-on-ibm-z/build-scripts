@@ -1,0 +1,20 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "bzip2",
+  "language": "python",
+  "github_url": "https://gitlab.com/bzip2/bzip2",
+  "version": "bzip2-0.1",
+  "wheel_build": true,
+  "package_dir": "b/bzip2",
+  "default_branch": "master",
+  "build_script": "bzip2.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "provides_artifact": "bzip2",
+  "*": {
+    "build_script": "bzip2.sh"
+  }
+}

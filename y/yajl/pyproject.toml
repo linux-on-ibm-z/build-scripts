@@ -1,0 +1,5 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+# setuptools.build_meta is present in all setuptools releases; :__legacy__ maps to
+# setuptools.backends.legacy which only exists in setuptools>=70 (template pins <70)
+build-backend = "setuptools.build_meta"

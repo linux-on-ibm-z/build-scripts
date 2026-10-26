@@ -1,0 +1,19 @@
+
+{
+  "maintainer": "Aritrika Ghosh",
+  "package_name": "jmespath",
+  "language": "python",
+  "github_url": "https://github.com/jmespath/jmespath.py",
+  "version": "1.0.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "j/jmespath",
+  "default_branch": "develop",
+  "build_script": "jmesapth.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "jmesapth.sh"
+  }
+} 

@@ -1,0 +1,18 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "dm-tree",
+  "github_url": "https://github.com/google-deepmind/tree",
+  "version": "0.1.9",
+  "git_tag": "0.1.9",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "d/dm-tree",
+  "default_branch": "master",
+  "build_script": "dm-tree.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "dm-tree.sh"
+  }
+}

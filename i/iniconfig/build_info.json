@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "iniconfig",
+  "language": "python",
+  "github_url": "https://github.com/pytest-dev/iniconfig",
+  "version": "2.1.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "i/iniconfig",
+  "default_branch": "main",
+  "build_script": "iniconfig.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "iniconfig.sh"
+  }
+}

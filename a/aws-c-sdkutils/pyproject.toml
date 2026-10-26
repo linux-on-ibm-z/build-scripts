@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aws-c-sdkutils"
+dynamic = ["version"]
+description = "Native aws-c-sdkutils C library (AWS SDK utilities: ARN parsing, AWS profiles)"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Pranjal-Patidar1", email = "pranjal.patidar1@ibm.com" }]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: C",
+]
+
+[project.urls]
+Homepage = "https://github.com/awslabs/aws-c-sdkutils"
+
+[tool.setuptools.package-dir]
+"" = "python_package"
+
+[tool.setuptools.packages.find]
+where = ["python_package"]
+
+[tool.distutils.bdist_wheel]
+universal = false

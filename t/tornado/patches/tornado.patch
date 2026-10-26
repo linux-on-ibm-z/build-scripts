@@ -1,0 +1,36 @@
+diff --git a/tornado/iostream.py b/tornado/iostream.py
+index ee57759..6a48700 100644
+--- a/tornado/iostream.py
++++ b/tornado/iostream.py
+@@ -1565,6 +1565,9 @@ class SSLIOStream(IOStream):
+     def _is_connreset(self, e: BaseException) -> bool:
+         if isinstance(e, ssl.SSLError) and e.args[0] == ssl.SSL_ERROR_EOF:
+             return True
++        # On s390x big-endian, OpenSSL raises SSL_ERROR_SYSCALL instead of SSL_ERROR_EOF on peer close.
++        if isinstance(e, ssl.SSLError) and e.args[0] == ssl.SSL_ERROR_SYSCALL:
++            return True
+         return super()._is_connreset(e)
+ 
+ 
+diff --git a/tornado/test/tcpclient_test.py b/tornado/test/tcpclient_test.py
+index ecfc82d..a39eaa1 100644
+--- a/tornado/test/tcpclient_test.py
++++ b/tornado/test/tcpclient_test.py
+@@ -161,6 +161,17 @@ class TCPClientTest(AsyncTestCase):
+             # Root can use any port so we can't easily force this to fail.
+             # This is mainly relevant for docker.
+             self.skipTest("running as root")
++        # When ip_unprivileged_port_start=0 (e.g. some UBI9 containers), any
++        # user can bind to port 1; the test premise cannot be forced to fail.
++        # This is not s390x-specific; the same condition occurs on x86_64.
++        _probe = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
++        try:
++            _probe.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
++            _probe.bind(("127.0.0.1", 1))
++            _probe.close()
++            self.skipTest("port 1 is bindable without privileges")
++        except OSError:
++            _probe.close()
+         self.assertRaises(
+             socket.error,
+             self.do_test_connect,

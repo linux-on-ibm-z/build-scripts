@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "traitlets",
+  "language": "python",
+  "github_url": "https://github.com/ipython/traitlets",
+  "version": "5.14.3",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "t/traitlets",
+  "default_branch": "main",
+  "build_script": "traitlets.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "traitlets.sh"
+  }
+}

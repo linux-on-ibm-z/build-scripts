@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "flit",
+  "language": "python",
+  "github_url": "https://github.com/pypa/flit",
+  "version": "3.9.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "f/flit",
+  "default_branch": "main",
+  "build_script": "flit.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "flit.sh"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "pytest",
+  "language": "python",
+  "github_url": "https://github.com/pytest-dev/pytest",
+  "version": "8.3.5",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "p/pytest",
+  "default_branch": "main",
+  "build_script": "pytest.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "pytest.sh"
+  }
+}

@@ -1,0 +1,19 @@
+
+{
+  "maintainer": "Aritrika Ghosh",
+  "package_name": "jupyter_server",
+  "language": "python",
+  "github_url": "https://github.com/jupyter-server/jupyter_server",
+  "version": "v2.15.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "j/jupyter_server",
+  "default_branch": "main",
+  "build_script": "jupyter_server.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "jupyter_server.sh"
+  }
+}  

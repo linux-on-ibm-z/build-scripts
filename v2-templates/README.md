@@ -21,7 +21,7 @@ RH_DEP_PKGS="git python3 python3-devel python3-pip gcc"
 DEB_DEP_PKGS="git python3 python3-dev python3-pip python3-venv gcc"
 
 # Execute the build (template handles everything)
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 See `examples/python_starter.sh` for a ready-to-use starter template.
@@ -210,7 +210,7 @@ post_clone() {
     sed -i 's/old_api/new_api/g' src/module.py
 }
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Example: Custom Test Command

@@ -1,0 +1,18 @@
+{
+  "maintainer": "Aritrika Ghosh",
+  "package_name": "tqdm",
+  "language": "python",
+  "github_url": "https://github.com/tqdm/tqdm",
+  "version": "v4.67.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "t/tqdm",
+  "default_branch": "master",
+  "build_script": "tqdm.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "tqdm.sh"
+  }
+}  

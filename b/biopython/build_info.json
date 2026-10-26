@@ -1,0 +1,18 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "biopython",
+  "github_url": "https://github.com/biopython/biopython",
+  "version": "biopython-178",
+  "git_tag": "biopython-178",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "b/biopython",
+  "default_branch": "master",
+  "build_script": "biopython.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "biopython.sh"
+  }
+}

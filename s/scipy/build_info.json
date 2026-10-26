@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "scipy",
+  "language": "python",
+  "github_url": "https://github.com/scipy/scipy",
+  "version": "v1.16.2",
+  "wheel_build": true,
+  "package_dir": "s/scipy",
+  "default_branch": "main",
+  "build_script": "scipy.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "scipy.sh"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "toml",
+  "language": "python",
+  "github_url": "https://github.com/uiri/toml",
+  "version": "0.10.2",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "t/toml",
+  "default_branch": "master",
+  "build_script": "toml.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "toml.sh"
+  }
+}

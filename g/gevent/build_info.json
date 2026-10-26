@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "gevent",
+  "language": "python",
+  "github_url": "https://github.com/gevent/gevent",
+  "version": "23.9.1",
+  "wheel_build": true,
+  "package_dir": "g/gevent",
+  "default_branch": "master",
+  "build_script": "gevent.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "gevent.sh"
+  }
+}

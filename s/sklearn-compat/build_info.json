@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "sklearn-compat",
+  "language": "python",
+  "github_url": "https://github.com/sklearn-compat/sklearn-compat",
+  "version": "0.1.3",
+  "wheel_build": true,
+  "package_dir": "s/sklearn-compat",
+  "default_branch": "main",
+  "build_script": "sklearn-compat.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "sklearn-compat.sh"
+  }
+}

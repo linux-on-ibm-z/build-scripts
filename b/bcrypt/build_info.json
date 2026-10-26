@@ -1,0 +1,18 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "bcrypt",
+  "github_url": "https://github.com/pyca/bcrypt",
+  "version": "5.0.0",
+  "git_tag": "5.0.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "b/bcrypt",
+  "default_branch": "main",
+  "build_script": "bcrypt.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "bcrypt.sh"
+  }
+}

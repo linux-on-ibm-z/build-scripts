@@ -1,0 +1,19 @@
+{
+  "maintainer": "viddya.k@ibm.com",
+  "package_name": "imbalanced-learn",
+  "language": "python",
+  "github_url": "https://github.com/scikit-learn-contrib/imbalanced-learn",
+  "version": "0.13.0",
+  "wheel_build": true,
+  "package_dir": "i/imbalanced-learn",
+  "default_branch": "master",
+  "build_script": "imbalanced-learn.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "resource_class": "light",
+  "v2-enabled": true,
+  "*": {
+    "build_script": "imbalanced-learn.sh"
+  }
+}

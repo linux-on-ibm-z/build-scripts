@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "pypika",
+  "language": "python",
+  "github_url": "https://github.com/kayak/pypika",
+  "version": "0.51.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "p/pypika",
+  "default_branch": "master",
+  "build_script": "pypika.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "pypika.sh"
+  }
+}

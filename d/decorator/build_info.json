@@ -1,0 +1,19 @@
+
+{
+  "maintainer": "Aritrika Ghosh",
+  "package_name": "decorator",
+  "language": "python",
+  "github_url": "https://github.com/micheles/decorator",
+  "version": "4.4.2",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "d/decorator",
+  "default_branch": "master",
+  "build_script": "decorator.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "decorator.sh"
+  }
+} 

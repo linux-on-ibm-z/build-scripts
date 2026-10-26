@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "PySocks",
+  "language": "python",
+  "github_url": "https://github.com/Anorov/PySocks",
+  "version": "1.7.0",
+  "wheel_build": true,
+  "package_dir": "p/PySocks",
+  "default_branch": "master",
+  "build_script": "PySocks.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "PySocks.sh"
+  }
+}

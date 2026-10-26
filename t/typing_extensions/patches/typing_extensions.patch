@@ -1,0 +1,14 @@
+diff --git a/src/test_typing_extensions.py b/src/test_typing_extensions.py
+index da4e3e4..fcd06b1 100644
+--- a/src/test_typing_extensions.py
++++ b/src/test_typing_extensions.py
+@@ -8844,8 +8844,7 @@ class TestEvaluateForwardRefs(BaseTestCase):
+         self.assertIs(evaluate_forward_ref(typing.ForwardRef("int"), globals={"int": str}), str)
+         import builtins
+ 
+-        from test import support
+-        with support.swap_attr(builtins, "int", dict):
++        with patch.object(builtins, "int", dict):
+             self.assertIs(evaluate_forward_ref(typing.ForwardRef("int")), dict)
+ 
+     def test_nested_strings(self):

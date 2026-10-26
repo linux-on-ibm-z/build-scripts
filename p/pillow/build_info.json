@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "pillow",
+  "language": "python",
+  "github_url": "https://github.com/python-pillow/Pillow",
+  "version": "11.1.0",
+  "wheel_build": true,
+  "package_dir": "p/pillow",
+  "default_branch": "main",
+  "build_script": "pillow.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "pillow.sh"
+  }
+}

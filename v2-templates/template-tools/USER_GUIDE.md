@@ -561,7 +561,7 @@ custom_test_command() {
 
 # Determine script directory and source the template
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Callback Functions

@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "tensorflow-probability",
+  "language": "python",
+  "github_url": "https://github.com/tensorflow/probability",
+  "version": "0.25.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "t/tensorflow-probability",
+  "default_branch": "main",
+  "build_script": "tensorflow-probability.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "tensorflow-probability.sh"
+  }
+}
