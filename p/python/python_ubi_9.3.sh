@@ -8,7 +8,7 @@
 # Language       : python
 # Ci-Check   : True
 # Script License : Apache License, Version 2 or later
-# Maintainer     : Sankalp <sankalp@ibm.com>
+# Maintainer     : Srighakollapu-Srivatsa1 <Srighakollapu-Srivatsa1@ibm.com>
 #
 # Disclaimer: This script has been tested in root mode on given
 # ==========  platform using the mentioned version of the package.
