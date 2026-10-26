@@ -1,0 +1,16 @@
+{
+  "maintainer": "Viddya",
+  "package_name": "numpy",
+  "github_url": "https://github.com/numpy/numpy",
+  "version": "v2.4.0",
+  "wheel_build" : true,
+  "package_dir": "n/numpy",
+  "default_branch": "main",
+  "build_script": "numpy_ubi_9.7.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "v2.*.*": {
+    "build_script": "numpy_ubi_9.7.sh"
+  }
+}
