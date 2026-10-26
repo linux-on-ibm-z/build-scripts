@@ -23,8 +23,8 @@ PACKAGE_VERSION=${1:-4.13.2}
 PACKAGE_URL=https://github.com/antlr/antlr4
 
 yum install -y git wget
-
 yum install -y tzdata java-17-openjdk java-17-openjdk-devel git wget 
+
 export JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm/ | grep -P '^(?=.*java-17)(?=.*s390x)')
 export PATH=$JAVA_HOME/bin:$PATH
 
