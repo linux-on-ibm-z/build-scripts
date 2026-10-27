@@ -1,0 +1,18 @@
+{
+  "maintainer": "Niyam Siwach <niyam@ibm.com>",
+  "package_name": "webencodings",
+  "language": "python",
+  "github_url": "https://github.com/gsnedders/python-webencodings",
+  "version": "0.5.1",
+  "wheel_build": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "package_dir": "w/webencodings",
+  "build_script": "webencodings.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "webencodings.sh"
+  }
+}

@@ -1,0 +1,4 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+# setuptools.backends.legacy requires setuptools>=70; template pins <70 so use the legacy alias
+build-backend = "setuptools.build_meta:__legacy__"

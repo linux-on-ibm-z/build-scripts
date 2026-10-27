@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "virtualenv",
+  "language": "python",
+  "github_url": "https://github.com/pypa/virtualenv",
+  "version": "20.30.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "v/virtualenv",
+  "default_branch": "main",
+  "build_script": "virtualenv.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "virtualenv.sh"
+  }
+}

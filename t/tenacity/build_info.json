@@ -1,0 +1,19 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "tenacity",
+  "language": "python",
+  "github_url": "https://github.com/jd/tenacity",
+  "version": "8.2.2",
+  "wheel_build": true,
+  "package_dir": "t/tenacity",
+  "default_branch": "main",
+  "build_script": "tenacity.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "*": {
+    "build_script": "tenacity.sh"
+  }
+}

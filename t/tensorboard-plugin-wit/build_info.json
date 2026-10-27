@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "tensorboard-plugin-wit",
+  "language": "python",
+  "github_url": "https://github.com/PAIR-code/what-if-tool",
+  "version": "1.8.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "t/tensorboard-plugin-wit",
+  "default_branch": "master",
+  "build_script": "tensorboard-plugin-wit.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "tensorboard-plugin-wit.sh"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "maintainer": "kuncha.mahesh@ibm.com",
+  "package_name": "pyaml",
+  "language": "python",
+  "github_url": "https://github.com/mk-fg/pretty-yaml",
+  "version": "25.7.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "p/pyaml",
+  "default_branch": "main",
+  "build_script": "pyaml.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "pyaml.sh"
+  }
+}

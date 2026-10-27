@@ -1,0 +1,17 @@
+diff --git a/python/google/protobuf/internal/well_known_types.py b/python/google/protobuf/internal/well_known_types.py
+index b581ab750a..4e3b75226c 100644
+--- a/python/google/protobuf/internal/well_known_types.py
++++ b/python/google/protobuf/internal/well_known_types.py
+@@ -160,6 +160,12 @@ class Timestamp(object):
+       raise ValueError(
+           'time data \'{0}\' does not match format \'%Y-%m-%dT%H:%M:%S\', '
+           'lowercase \'t\' is not accepted'.format(second_value))
++    # Python 3.14 changed the ValueError message for year=0 from
++    # "year 0 is out of range" to "year must be in 1..9999, not 0".
++    # Validate the year explicitly so the message is stable across versions.
++    year_str = second_value.split('-')[0]
++    if year_str.lstrip('0') == '' or int(year_str) == 0:
++      raise ValueError('year 0 is out of range')
+     date_object = datetime.datetime.strptime(second_value, _TIMESTAMPFOMAT)
+     td = date_object - datetime.datetime(1970, 1, 1)
+     seconds = td.seconds + td.days * _SECONDS_PER_DAY

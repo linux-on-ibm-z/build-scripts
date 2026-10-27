@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "transformers",
+  "language": "python",
+  "github_url": "https://github.com/huggingface/transformers",
+  "version": "4.49.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "t/transformers",
+  "default_branch": "main",
+  "build_script": "transformers.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "transformers.sh"
+  }
+}

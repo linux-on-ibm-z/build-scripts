@@ -6,7 +6,7 @@
   "git_tag": "3.1.6",
   "wheel_build": true,
   "v2-enabled": true,
-  "package_dir": "j/jinja2",
+  "package_dir": "j/jinja2 ",
   "default_branch": "main",
   "build_script": "jinja2.sh",
   "docker_build": false,

@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "aws-c-sdkutils",
+  "github_url": "https://github.com/awslabs/aws-c-sdkutils",
+  "version": "v0.1.6",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "a/aws-c-sdkutils-0.1.6",
+  "default_branch": "main",
+  "build_script": "aws-c-sdkutils.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "aws-c-sdkutils.sh"
+  }
+}

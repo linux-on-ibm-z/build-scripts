@@ -187,7 +187,7 @@ EOF
         "${PACKAGE_URL}" "BSD-3-Clause"
 }
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Consumer Script (Python Package)
@@ -230,7 +230,7 @@ pre_build() {
     pip install numpy pybind11
 }
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ---
@@ -688,7 +688,7 @@ SKIP_TESTS=true
 # =============================================================================
 # Execute the build
 # =============================================================================
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Common env.sh Exports

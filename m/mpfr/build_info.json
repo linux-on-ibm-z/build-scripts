@@ -1,0 +1,23 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "mpfr",
+  "language": "python",
+  "github_url": "https://gitlab.inria.fr/mpfr/mpfr",
+  "version": "4.1.0",
+  "wheel_build": true,
+  "package_dir": "m/mpfr",
+  "default_branch": "master",
+  "build_script": "mpfr.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "provides_artifact": "mpfr",
+  "build_deps": [
+    "gmp"
+  ],
+  "*": {
+    "build_script": "mpfr.sh"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "deprecated",
+  "github_url": "https://github.com/laurent-laporte-pro/deprecated",
+  "version": "v1.2.14",
+  "git_tag": "v1.2.14",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "d/deprecated",
+  "default_branch": "master",
+  "build_script": "deprecated.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "deprecated.sh"
+  }
+}

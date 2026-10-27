@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "aws-c-common",
+  "github_url": "https://github.com/awslabs/aws-c-common",
+  "version": "v1.0.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "a/aws-c-common",
+  "default_branch": "main",
+  "build_script": "aws-c-common.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "aws-c-common.sh"
+  }
+}

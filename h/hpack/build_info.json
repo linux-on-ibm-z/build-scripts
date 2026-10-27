@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "hpack",
+  "language": "python",
+  "github_url": "https://github.com/python-hyper/hpack",
+  "version": "v4.0.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "h/hpack",
+  "default_branch": "master",
+  "build_script": "hpack.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "hpack.sh"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "glob2",
+  "language": "python",
+  "github_url": "https://github.com/miracle2k/python-glob2",
+  "version": "0.7",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "g/glob2",
+  "default_branch": "master",
+  "build_script": "glob2.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "glob2.sh"
+  }
+}

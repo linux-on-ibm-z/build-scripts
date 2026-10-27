@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "autovizwidget",
+  "github_url": "https://github.com/jupyter-incubator/sparkmagic",
+  "version": "0.22.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "a/autovizwidget",
+  "default_branch": "master",
+  "build_script": "autovizwidget.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "autovizwidget.sh"
+  }
+}

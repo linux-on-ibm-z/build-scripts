@@ -53,7 +53,7 @@ RH_DEP_PKGS="git python3 python3-devel python3-pip"
 DEB_DEP_PKGS="git python3 python3-dev python3-pip python3-venv"
 SLES_DEP_PKGS="git python3 python3-devel python3-pip"
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Key Differences
@@ -84,7 +84,7 @@ PACKAGE_URL="https://github.com/psf/requests"
 RH_DEP_PKGS="git python3 python3-devel python3-pip gcc"
 DEB_DEP_PKGS="git python3 python3-dev python3-pip python3-venv gcc"
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 That's it. The template handles everything else.
@@ -141,7 +141,7 @@ SLES_DEP_PKGS="..."  # optional but recommended
 # CALLBACKS: Define any needed hooks here (before source line)
 
 # Execute template
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Step 3: Convert Dependencies
@@ -588,15 +588,15 @@ error: Unknown metadata field: license_files
 
 # Modern package needing PEP 639 license_files, dynamic metadata, etc.
 SETUPTOOLS_VERSION=">=70,<82"
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 
 # Bleeding edge (package has no pkg_resources dependency at all)
 SETUPTOOLS_VERSION=""  # Empty = let pip resolve latest
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 
 # Specific version pin if needed
 SETUPTOOLS_VERSION="==69.5.1"
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 **How to detect which you need**:
@@ -623,7 +623,7 @@ PACKAGE_VERSION="${1:-v2.31.0}"
 PACKAGE_URL="https://github.com/psf/requests"
 RH_DEP_PKGS="git python3 python3-devel python3-pip"
 DEB_DEP_PKGS="git python3 python3-dev python3-pip python3-venv"
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Level 2: Moderate (1-2 Callbacks)
@@ -640,7 +640,7 @@ custom_test_command() {
     pytest -k "not test_slow"
 }
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Level 3: Complex (Multiple Callbacks)
@@ -669,7 +669,7 @@ custom_test_command() {
     pytest --deselect tests/slow/ -k "not flaky"
 }
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ### Level 4: Custom Build (custom_install)
@@ -889,7 +889,7 @@ custom_test_command() {
         --disable-warnings
 }
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ---

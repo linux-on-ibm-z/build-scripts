@@ -1,0 +1,20 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "typing_extensions",
+  "language": "python",
+  "github_url": "https://github.com/python/typing_extensions",
+  "version": "4.13.1",
+  "wheel_build": true,
+  "package_dir": "t/typing_extensions",
+  "default_branch": "main",
+  "build_script": "typing_extensions.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "provides_artifact": "typing_extensions",
+  "*": {
+    "build_script": "typing_extensions.sh"
+  }
+}

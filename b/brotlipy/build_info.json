@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "brotlipy",
+  "github_url": "https://github.com/python-hyper/brotlicffi",
+  "version": "v0.7.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "b/brotlipy",
+  "default_branch": "main",
+  "build_script": "brotlipy.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "brotlipy.sh"
+  }
+}

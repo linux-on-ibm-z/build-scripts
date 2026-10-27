@@ -1,0 +1,20 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "yajl",
+  "language": "python",
+  "github_url": "https://github.com/lloyd/yajl",
+  "version": "2.1.0",
+  "wheel_build": true,
+  "package_dir": "y/yajl",
+  "default_branch": "master",
+  "build_script": "yajl.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "provides_artifact": "yajl",
+  "*": {
+    "build_script": "yajl.sh"
+  }
+}

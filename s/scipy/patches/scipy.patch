@@ -1,0 +1,24 @@
+diff --git a/dev.py b/dev.py
+index 675179bc22..c7ac8835b8 100644
+--- a/dev.py
++++ b/dev.py
+@@ -972,7 +972,8 @@ class SmokeTutorials(Task):
+             cmd += ['-v']
+ 
+         pytest_args = kwargs.pop('pytest_args', None)
+-        extra_argv = list(pytest_args[:]) if pytest_args else []
++        #extra_argv = list(pytest_args[:]) if pytest_args else []
++        extra_argv = list(pytest_args) if isinstance(pytest_args, (list, tuple)) else []
+         if extra_argv and extra_argv[0] == '--':
+             extra_argv = extra_argv[1:]
+         cmd += extra_argv
+@@ -1291,7 +1292,8 @@ class Doc(Task):
+             targets = ''
+         else:
+             task_dep = ['build']
+-            targets = ' '.join(args) if args else 'html'
++            #targets = ' '.join(args) if args else 'html'
++            targets = ' '.join(args) if isinstance(args, (list, tuple)) else 'html'
+ 
+         kwargs.update(cls.ctx.get())
+         Args = namedtuple('Args', [k for k in kwargs.keys()])

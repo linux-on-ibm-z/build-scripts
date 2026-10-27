@@ -1,0 +1,20 @@
+{
+  "maintainer": "sai.sindhuri.avulamanda@ibm.com",
+  "package_name": "yaml",
+  "language": "python",
+  "github_url": "https://github.com/yaml/libyaml",
+  "version": "0.2.5",
+  "wheel_build": true,
+  "package_dir": "y/yaml",
+  "default_branch": "master",
+  "build_script": "yaml.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "v2-enabled": true,
+  "resource_class": "light",
+  "provides_artifact": "yaml",
+  "*": {
+    "build_script": "yaml.sh"
+  }
+}

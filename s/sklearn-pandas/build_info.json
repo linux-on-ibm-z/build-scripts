@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "sklearn-pandas",
+  "language": "python",
+  "github_url": "https://github.com/scikit-learn-contrib/sklearn-pandas",
+  "version": "2.2.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "s/sklearn-pandas",
+  "default_branch": "master",
+  "build_script": "sklearn-pandas.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "sklearn-pandas.sh"
+  }
+}

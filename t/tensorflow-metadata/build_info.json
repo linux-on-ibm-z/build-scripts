@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "tensorflow-metadata",
+  "language": "python",
+  "github_url": "https://github.com/tensorflow/metadata",
+  "version": "1.16.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "t/tensorflow-metadata",
+  "default_branch": "master",
+  "build_script": "tensorflow-metadata.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "tensorflow-metadata.sh"
+  }
+}

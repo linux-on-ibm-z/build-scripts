@@ -691,7 +691,7 @@ EOF
 # No tests for C library artifact
 SKIP_TESTS=true
 
-source "${SCRIPT_DIR}/../../templates/python.sh"
+source "${SCRIPT_DIR}/../../v2-templates/python.sh"
 ```
 
 ---

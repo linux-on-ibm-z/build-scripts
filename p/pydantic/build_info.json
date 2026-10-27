@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "pydantic",
+  "language": "python",
+  "github_url": "https://github.com/pydantic/pydantic",
+  "version": "2.11.4",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "p/pydantic",
+  "default_branch": "main",
+  "build_script": "pydantic.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "pydantic.sh"
+  }
+}

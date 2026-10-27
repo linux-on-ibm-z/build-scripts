@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "google-re2",
+  "github_url": "https://github.com/google/re2",
+  "version": "2024-07-02",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "g/google-re2",
+  "default_branch": "main",
+  "build_script": "google-re2.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "google-re2.sh"
+  }
+}

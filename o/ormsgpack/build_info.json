@@ -1,0 +1,17 @@
+{
+  "maintainer": "Pranjal",
+  "package_name": "ormsgpack",
+  "github_url": "https://github.com/aviramha/ormsgpack",
+  "version": "1.12.1",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "package_dir": "o/ormsgpack",
+  "default_branch": "master",
+  "build_script": "ormsgpack.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": "false",
+  "*": {
+    "build_script": "ormsgpack.sh"
+  }
+}

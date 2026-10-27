@@ -1,0 +1,19 @@
+{
+  "maintainer": "Build Scripts Team",
+  "package_name": "skl2onnx",
+  "language": "python",
+  "github_url": "https://github.com/onnx/sklearn-onnx",
+  "version": "1.18.0",
+  "wheel_build": true,
+  "v2-enabled": true,
+  "resource_class": "medium",
+  "package_dir": "s/skl2onnx",
+  "default_branch": "main",
+  "build_script": "skl2onnx.sh",
+  "docker_build": false,
+  "validate_build_script": true,
+  "use_non_root_user": false,
+  "*": {
+    "build_script": "skl2onnx.sh"
+  }
+}
